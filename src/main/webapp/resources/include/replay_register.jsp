@@ -105,7 +105,7 @@
 
 					<div class="con_input">
 						<textarea cols="30" rows="20" name="content" class="form-control" id="textarea1"></textarea>
-						<input name="file" type="file" accept="audio/* " class="file_button">
+						<input name="filename" type="file" accept="audio/* " class="file_button">
 					</div>
 					</div>
 					

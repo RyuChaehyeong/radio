@@ -24,16 +24,32 @@
 		background-color: black;
 		height: 55px;
 		justify-content: flex-end;
+		align-items: center; 
 	}
 	
 	.nav_list {
 		text-decoration: none;
-		color: white;		
+		color: white; 
+				
 	}
 	
 	.nav_list:hover {
 		text-decoration: none;
-		color: pink;
+		color: white; 
+	} 
+	
+	.nav_btn {
+		padding: 0px 2px 0px 2px;
+		background-color: black;
+		outline: none;
+		border: none;
+		text-decoration: none;
+	}
+	
+	.nav_btn:hover {
+		outline: none;
+		border: none;
+		text-decoration: none;
 	}
 </style>
 
@@ -48,22 +64,24 @@
    			</li>
    		</sec:authorize>
 	      <sec:authorize access="isAnonymous()">
-		      <li class="nav-item">
+		      <li class="">
 		        <a class="nav_list" href="/customLogin">로그인</a>
 		      </li>
 	      </sec:authorize>
 	      
 	      <sec:authorize access="isAuthenticated()">
-	      <form action="${root}/info.jsp" method="post">
-		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
-		  <button type="submit" class="nav_list">마이페이지</button>
-	      </form>
-		      <li class="nav-item">
+	      <li>
+	      	<form action="${root}/info.jsp" method="post">      
+				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">	
+		  		<button type="submit" class="nav_btn" >마이페이지</button>
+	      	</form>
+	      </li>
+		  <li class="">
 	      	<form action="/logout" method="post">
 		        <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
-		        <button type="submit" class="nav_list">로그아웃</button>
+		        <button type="submit" class="nav_btn">로그아웃</button>
 	      	</form>
-		      </li>
+		   </li>
 	      </sec:authorize>
    		</ul>
 	</div>

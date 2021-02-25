@@ -25,8 +25,7 @@ var bno = ${board.bno};
 <script src="${root }/resources/js/board_replay.js"></script>
 <style type="text/css">
 	body {
-		padding: 0px;
-		margin: 0px;
+		height: 100%; 
 	}
 	.header_title { 
 		border-bottom: 1px silver solid; 
@@ -39,12 +38,15 @@ var bno = ${board.bno};
 	}  
 	
 	.replay_get { 
-		margin: 0px 40px 10px 40px;
-		margin-top: 20px; 
+		width: 100%;  
+		margin: 50px 0px 20px 0px;
+		padding: 0px 50px 0px 50px;
 	}
 	
 	.tit_con {
-		height: 300px;
+		border-bottom: 1px solid silver; 
+		margin-bottom: 10px;
+		height: 300px; 
 	}
 	
 	.t_fmt {
@@ -52,7 +54,7 @@ var bno = ${board.bno};
 		background-color: lightslategrey;
 		align-items: center;
 		padding: 0px 10px 0px 10px;
-		border-bottom: 1px solid silver;
+		border-top: 1px solid black;
 	}
 	
 	.mod_div {
@@ -60,18 +62,20 @@ var bno = ${board.bno};
 	}
 	
 	audio { 
-		width: 100%;
+		width: 100%;  
 		
 	}
 	
-	.reply_btn  {
-		background-color: lightgrey;
-		color: snow;
-		margin-right: 5px;
-		padding: 2px 4px 2px 4px;
-		border-radius: 3px;
-		height: 27px;
+	.reply_btn {
+		background-color: snow;
+		border: 1px solid lightslategrey; 
+		border-radius: 5px 5px;
+		color: lightslategrey; 
+		weight: 30px;
+		height: 35px; 
+		padding: 0px 5px 0px 5px;	 
 	}
+	
 	.mod_btn {
 		background-color: lightgrey;
 		color: snow;
@@ -84,18 +88,10 @@ var bno = ${board.bno};
 		color: grey;
 		text-decoration: none;
 	}
-	
-	.reply_btn:hover {
-		color: grey;
-		text-decoration: none;
-		
-	}
+
 	.media-body {
 		background-color: snow;
 		margin-top: 10px;
-	}
-	#user_i {
-		
 	}
 	.reply_txt {
 		border-top: 2px solid white;
@@ -111,18 +107,24 @@ var bno = ${board.bno};
 	.media-body .re {
 		font-weight: bold;
 		text-size: 16px;
-}
+	}
+	
+	.reply_list {
+		margin-top: 50px;
+	}
 </style>
 <title>Insert title here</title>
 </head>
 <body>
-<div class="header_title">
-<h6>다시듣기</h6>
-</div>
+
+<div>
+	<div class="header_title">
+		<h6>다시듣기</h6>
+	</div>
 
 <div class="">
 	<div class="replay_get"> 
-		<div class="tit_con">
+		<div class="tit_con" style="border-radius: 0px;">
 				<div>
 					<div class="t_fmt" style="display: flex; justify-content: space-between;">
 						<div class="tit">
@@ -139,12 +141,11 @@ var bno = ${board.bno};
 		
 					</div>
 				</div>
+		</div>
 				
 					
 					<div class="mod_div" style="display: flex; justify-content: flex-end;">
-						<div>
-						<button class="reply_btn" id="new-reply-button">댓글 쓰기</button> 
-						</div>
+						
 							<c:url value="/replay/modify" var="modifyLink">
 							<c:param name="bno" value="${board.bno }"></c:param>
 							<c:param name="pageNum" value="${cri.pageNum }"></c:param>
@@ -159,38 +160,30 @@ var bno = ${board.bno};
 						</div>
 					</div>
 				
-		</div>
 
-	<!-- 댓글 목록 container -->
-	<div class=" ">
-		<div class="">
-			<div class="  ">
-				
-				<div class="">
+	<!-- 댓글 목록 container -->			
+				<div class="reply_list">
 					<div class="list_button" style="display: flex; justify-content: space-between;">
-						<div>
-						댓글
-						</div>												
+						<span>댓글</span>			
+						<button class="reply_btn" id="new-reply-button">댓글 쓰기</button> 												
 					</div>
 					
 					<div class="">
 					
 						<ul class="" id="reply-ul">
 						
-					
-							
-							
-							
+								
 						</ul>
 					
 					</div>
 					
-				</div>
+				 </div>
 							
-			</div>
+			
+		 
+	
 		</div>
 	</div>
-</div>
 </div>
 </body>
 </html>

@@ -148,7 +148,7 @@ var csrfTokenValue = "${_csrf.token}";
 <style type="text/css">
 	 body {
 	background-image: url("../resources/pic/background.jpg");
-	background-size: contain;
+	background-size: cover;
 	}	
 	
 	.nav-menu {

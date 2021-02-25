@@ -33,14 +33,15 @@
         display: grid;
         grid-gap: 15px;
         height: 100%;
-        grid-template-columns: 1fr 300px 300px 300px 300px 1fr;
-        grid-template-rows:  200px 50px 80px 150px 200px 200px;
+        grid-template-columns: 1fr 300px 300px 300px 300px 1fr 1fr;   
+        grid-template-rows:  200px 50px 90px 150px 200px 200px 200px;
         grid-template-areas: 'empty3 header header header header empty4'
                              'empty3 nav nav nav nav empty4'
                              'empty3 today today today today empty4'
                              'empty3 corner weekday SNS every empty4'
                              'empty3 list weekday listener every empty4'
-                             'empty3 list radio empty2 empty1 empty4'                            
+                             'empty3 list radio empty2 empty1 empty4'
+                             'empty3 empty5 empty5 empty2 empty1 empty4' 
    }
    .wrapper div{
         border-radius: 5px 5px;      
@@ -94,6 +95,9 @@
    }
    .empty4 {
         grid-area: empty4;
+   }
+   .empty5 {
+   		grid-area: empty5;
    }
    .every{
         background-color: snow;
@@ -216,6 +220,14 @@
    .description {
    	padding-left: 20px;
    }
+   
+   .evlist i {
+   	padding-left: 8px;
+   }
+   
+   .li_span {
+   	padding-left: 13px; 
+   }
 
 </style>
 </head>
@@ -272,7 +284,7 @@
             		<strong class="title1">[목요일] 극한일상</strong> 
             		<div class="description">
 						<p>
-							"극으로 치닿는 고민부터 극까이거 싶은 고민까지!"
+							"극으로 치닿는 고민부터 그까이거 싶은 고민까지!"
 							<br/>
 							"극정없는 DJ 문진수님과 극렬하게 여러분의 일상의 짐을 나눠드릴게요"
 						</p>					
@@ -321,30 +333,30 @@
         <div class="playlist">
             <strong class="title1"><i id="list" class="far fa-list-alt"></i>선곡표</strong>
         	<ul class="everyDay" style="list-style: none;">
-        		<li class="evList"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
+        		<li class="evlist"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
         		<img class="play-img" alt="지은이" align="left" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F609%2F2021%2F01%2F27%2F202101271630342410_1_20210127180008219.jpg&type=sc960_832" >
-        		celebrity<br>아이유(IU)</a></li> <br>
-        		<li class="evList"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
+        		celebrity<br/><span class="li_span">아이유(IU)</span></a></li> <br>
+        		<li class="evlist"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
         		<img class="play-img" alt="경서" align="left" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDEyMTNfODEg%2FMDAxNjA3NzkyNjIzMDgw.0RxK0w5_tuPeEPc9Sw05PTIQX08elGEfGN23icLsZXgg.11j9A48fhN_8kR6jrmM4nn42QyQeG9kclr4lQ5AF7w0g.JPEG.chris1677%2FIMG_5490.jpg&type=sc960_832" >
-        		밤하늘의 별을<br> 경서 </a></li><br>
-        		<li class="evList"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
+        		밤하늘의 별을<br/><span class="li_span">경서</span></a></li><br>
+        		<li class="evlist"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
         		<img class="play-img" alt="머쉬베놈" align="left" src="https://musicmeta-phinf.pstatic.net/album/005/100/5100782.jpg?type=r360Fll&v=20210121091405" >
-        		VVS<br>미란이&먼치맨</a></li><br>
-        		<li class="evList"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
+        		VVS<br/><span class="li_span">미란이&먼치맨</span></a></li><br>
+        		<li class="evlist"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
         		<img class="play-img" alt="장범준" align="left" src="https://dimg.donga.com/a/581/0/90/5/wps/NEWS/IMAGE/2020/10/24/103605963.2.jpg" >
-        		잠이 오질 않네요 <br>장범준</a></li><br>
-        		<li class="evList"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
+        		잠이 오질 않네요 <br/><span class="li_span">장범준</span></a></li><br>
+        		<li class="evlist"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
         		<img class="play-img" alt="방탄소년단" align="left" src="http://spnimage.edaily.co.kr/images/photo/files/NP/S/2020/10/PS20102700044.jpg" >
-        		DYNAMITE<br>방탄소년단</a></li><br>
-        		<li class="evList"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
+        		DYNAMITE<br/><span class="li_span">방탄소년단</span></a></li><br>
+        		<li class="evlist"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
         		<img class="play-img" alt="아이유" align="left" src="https://cdnimg.melon.co.kr/cm2/album/images/104/26/648/10426648_20200506153340_500.jpg?0ed92b652a9149e26387233529a32781" >
-        		에잇<br>아이유(IU&BTS)</a></li><br>
-        		<li class="evList"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
+        		에잇<br/><span class="li_span">아이유(IU&BTS)</span></a></li><br>
+        		<li class="evlist"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
         		<img class="play-img" alt="10CM" align="left" src="http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/858/755/81858755_1611302348643_1_600x600.JPG" >
-        		이밤을 빌려 말해요<br>10CM</a></li><br>
-        		<li class="evList"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
+        		이밤을 빌려 말해요<br/><span class="li_span">10CM</span></a></li><br>
+        		<li class="evlist"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
         		<img class="play-img" alt="방탄소년단" align="left" src="https://image.bugsm.co.kr/album/images/350/9887/988734.jpg" >
-        		취기를 빌려<br>산들(취향저격그녀& 산들)</a></li>
+        		취기를 빌려<br/><span class="li_span">산들</span><br><span class="li_span">(취향저격그녀&산들)</span></a></li>
         		
         	</ul>
         </div>
@@ -376,8 +388,8 @@
             	</sec:authorize>
         </div>
 
-        <div class="empty1">empty</div>
-        <div class="empty2">empty</div>
+        <div class="empty1">empty1</div>
+        <div class="empty2">empty2</div>
 
         <div class="every">
             <strong class="title1">홍보</strong>
@@ -385,6 +397,7 @@
         
         <div class="empty3">empty3</div>
         <div class="empty4">empty4</div> 
+        <div class="empty5">empty5</div> 
        
     </div>   
     

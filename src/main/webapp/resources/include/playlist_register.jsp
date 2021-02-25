@@ -47,7 +47,6 @@
 		outline: none;
 		border: 1px silver solid;
 		margin-bottom: 10px;
-		text-align: center;
 		border-radius: 5px 5px;
 	}
 	
@@ -74,7 +73,7 @@
 	.tit_input input {
 		border: none;
 		outline: none;
-		text-align: center;
+		s
 	}
 	.tit_content {
 		padding: 20px 100px 20px 100px;  
@@ -94,8 +93,6 @@
 </div>
 
 	<div class="register_wrapper">
-		
-
 				<form method="post" action="/playlist/register"> 
 					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 					
@@ -105,8 +102,7 @@
 					</div>
 
 					<div class="con_input">						
-						<textarea name="content" 
-							cols="30" rows="20" placeholder="내용을 입력하세요."></textarea>
+						<textarea wrap="hard" name="content"  cols="10" rows="10" placeholder="내용을 입력하세요."></textarea>
 					</div>
 				</div>
 					

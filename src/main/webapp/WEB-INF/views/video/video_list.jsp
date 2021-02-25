@@ -69,12 +69,12 @@
 
        </div>
         
+    </div> 
       
     <div class="footer">
         <footer>
             footer
         </footer>
-    </div>
     </div>
     
     

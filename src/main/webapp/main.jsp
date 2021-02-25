@@ -19,7 +19,7 @@
 
 <style type="text/css">
 	 body {
-	background-image: url("../resources/pic/background.jpg");
+	background-image: url("/resources/pic/background.jpg");
 	background-size: contain;
 	}	
 	
@@ -46,7 +46,7 @@
     <div class="wrapper">  
 
         <div class="header">
-            <h1><a class="moon" href="${root }">Moon's radio</a></h1>
+            <h1><a class="moon" href="${root }/">Moon's radio</a></h1>
         </div> 
 
         <div class="nav">
@@ -70,7 +70,19 @@
        <div class="empty1">
 
        </div>
-        
+       
+        <div class="empty2">
+       
+       </div>
+       
+       <div class="empty3">
+       
+       </div> 
+       
+       <div class="empty4">
+       
+       </div>
+             
     </div>
     
     <div class="footer">

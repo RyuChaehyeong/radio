@@ -39,7 +39,23 @@
 <body>
 
 <div class="header2">
-       <jsp:include page="/resources/include/main_header.jsp" />  
+        <nav class="header-nav">
+            <a href="" style="text-decoration: none; color:white; align-items: center; display: flex;">회원가입</a>
+            <sec:authorize access="isAnonymous()">
+		      <li class="nav-item">
+		        <a class="nav-link" href="/customLogin">로그인</a>
+		      </li>
+	      </sec:authorize>
+	      
+	      <sec:authorize access="isAuthenticated()">
+		      <li class="nav-item">
+	      	<form action="/logout" method="post">
+		        <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+		        <button type="submit" class="btn btn-outline-dark btn-sm">로그아웃</button>
+	      	</form>
+		      </li>
+	      </sec:authorize>
+        </nav>
     </div>
     <div class="wrapper">  
 
@@ -62,7 +78,7 @@
         					
 
        <div class="main">
-       		<jsp:include page="/resources/include/register.jsp" />
+       		<jsp:include page="/resources/include/board_register.jsp" />
        </div>
        
        <div class="empty1">
