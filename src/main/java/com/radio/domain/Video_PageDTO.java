@@ -18,7 +18,7 @@ public class Video_PageDTO {
 		//cri에 담긴 pageNum으로 시작과 끝 페이지 구하기
 		this.endPage = (int) (Math.ceil(video_Criteria.getPageNum() / 10.0) * 10);
 		this.startPage = this.endPage - 9;
-		
+		 
 		
 		//total 게시물 개수를 이용해 맨 마지막 페이지 구하기
 		int finalPage = (int) (Math.ceil((total*1.0) / video_Criteria.getAmount()));
