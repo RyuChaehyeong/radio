@@ -147,7 +147,7 @@
 	<div class="header2">
         <jsp:include page="/resources/include/main_header.jsp" /> 
     </div>
-    s
+    
     <div class="wrapper">  
 
         <div class="header">
@@ -169,9 +169,7 @@
     </div>
     
     <div class="footer">
-        <footer>
-            footer
-        </footer>
+        <jsp:include page="/resources/include/main_footer.jsp" />
     </div>
     
 

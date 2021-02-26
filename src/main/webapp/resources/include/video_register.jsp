@@ -64,6 +64,34 @@
 }
 .form-floating :placeholder-shown{
 }
+
+.tit_content {
+		padding: 40px 100px 40px 100px;  
+		background-color: white;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+		border-radius: 5px 5px;
+}
+
+.tit_content input {
+	margin-bottom: 20px;
+	border: 1px solid grey;
+}
+
+.con_input textarea {
+	border: 1px solid grey;
+	resize: none;
+}
+
+.reg_btn {
+	background-color: lightgrey;
+	color: grey;
+	padding: 2px 4px 2px 4px;
+	border-radius: 3px;
+	height: 27px;
+	margin-right: 5px;
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -72,37 +100,44 @@
 
 <div class="video-register">
 	
-	<form id="registerForm" action="${root }/video/video_register" 
+		<form id="registerForm" action="${root }/video/video_register" 
 	               enctype="multipart/form-data" method="post">
 		
-		<label for="input1">제목</label>
-		<input id="input1" type="text" name="video_title" placeholder="제목">
+		<div class="tit_content">
 		
-		<label for="input2">방송일</label>
-		<input id="input2" type="date" name="video_date"  value="2020-01-01"
+		<input id="input1" type="text" name="video_title" class="form-control"  placeholder="제목을 입력하세요.">
+		
+		<span>방송일</span>
+		<input id="input2" type="date" name="video_date" class="form-control"  value="2020-01-01"
       			 min="2021-01-01" max="2022-12-31">
       	
-      	<label for="input3">썸네일</label>
+      	<span>썸네일</span>
 		<input name="thumbnail" type="file" accept="image/*" class="form-control" 
 					placeholder="썸네일" id="input3" >
 		
-		<label for="input4">영상</label>
+		<span>영상</span>
 		<input name="vod" type="file" accept="video/*" class="form-control" 
 					placeholder="영상" id="input4" >
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 		
+		<div class="con_input">
+						<textarea cols="10" rows="10" name="content" class="form-control" id="textarea1"></textarea>
+		</div>
+	
 		<input type="hidden" name="video_thumbnail" value="">
 		<input type="hidden" name="video_vod" value="">
 
-		<input type="submit" />
+		<input type="submit" hidden/>
+	
+		</div>
 	</form>
 
 
 
 	
-	<div class="btn-group">
-		<button data-oper="register" type="button" class="btn btn-secondary">작성하기</button>
-	  	<button data-oper="cancel" type="button" class="btn btn-light">취소</button>
+	<div class="btn-group" style="display: flex; justify-content: space-between;">
+		<button data-oper="register" type="button" class="reg_btn">작성하기</button>
+	  	<button data-oper="cancel" type="button" class="reg_btn">취소</button>
 	</div>
 	
 	<div class="d-none">

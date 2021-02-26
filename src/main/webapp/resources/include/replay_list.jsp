@@ -133,12 +133,14 @@ tbody tr td a:hover {
 .page_nav {
 	list-style: none;
 	display: flex;
+	justify-content: center; 
 }
 
 .page_nav li {	
 	background-color: snow; 	
 	margin-top: 10px;
 	border-radius: 5px 5px;
+	
 }
 .page_num {
 	color: grey;
@@ -206,7 +208,7 @@ tbody tr td a:hover {
 
 
 <div class=" ">
-	<div class=" ">
+	<div class=" "  style="margin-top: 10px;">
 		
 		  <ul class="page_nav">
 		  
@@ -231,7 +233,7 @@ tbody tr td a:hover {
 		    		<c:param name="type" value="${pageMaker.cri.type }"/>
 		    		<c:param name="keyword" value="${pageMaker.cri.keyword }"/>
 		    	</c:url>
-		    	<li class=" ${pageMaker.cri.pageNum eq num ? 'active' : '' }">
+		    	<li style="margin:0px; padding:0px; padding-right: 2px;" class=" ${pageMaker.cri.pageNum eq num ? 'active' : '' }">
 		    	<%-- <a class="page-link" href="${pageLink }">${num }</a> --%>
 		    	<a class="page_num" href="${num }">${num }</a>
 		    	</li>

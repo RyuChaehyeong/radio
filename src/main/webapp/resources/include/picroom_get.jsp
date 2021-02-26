@@ -239,7 +239,7 @@ $(document).ready(function() {
 	  <button id="pictureRoom-delete-btn1" type="button" class="sub_btn">삭제</button>
 	</sec:authorize>
 	
-	<div style="float: right;">
+	<div style="float: right; margin-bottom: 10px;">
  	 <a href="${root }/picroom/list" class="list_btn">목록</a>
 	</div>
   

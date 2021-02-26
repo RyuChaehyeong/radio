@@ -401,15 +401,15 @@ document.getElementById('sysdate').innerHTML = locale();
             <strong class="title1"><i id="list" class="far fa-list-alt"></i>보이는라디오</strong>
             <div class="box box_short photo" id="bora"> 
 				<a href="${root }/video/video_read?video_bno=104&pageNum=1&amount=5">
-				<span class="img"><img src="https://i1.sndcdn.com/artworks-000049909608-wpupq6-t500x500.jpg" 	
-				width="250px" height="200" align="left"></span>
+				<span style="padding-left: 180px;" class="img"><img src="https://i1.sndcdn.com/artworks-000049909608-wpupq6-t500x500.jpg" 	
+				width="250px" height="200"></span> 
 				</a>
 				<span>
 				<a href="${root }/video/video_read?video_bno=104&pageNum=1&amount=5">
-				채형's security강의방송일 2021-02-18
+				<span style="padding-left: 180px; color: grey;" >채형's security강의방송일 2021-02-18</span>
 				</a>
-				</span>				
-				
+				</span>				 
+				  
 			</div>
         </div>
 
@@ -458,9 +458,7 @@ document.getElementById('sysdate').innerHTML = locale();
     </div>   
     
     <div class="footer">
-        <footer>
-            footer
-        </footer>
+        <jsp:include page="/resources/include/main_footer.jsp" />
     </div>
 </body>
 </html>
