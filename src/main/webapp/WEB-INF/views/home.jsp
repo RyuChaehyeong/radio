@@ -429,13 +429,13 @@ document.getElementById('sysdate').innerHTML = locale();
             <div class="inquiry_body">
             	<h2><strong style="margin-bottom: 30px;">1 : 1 문의하기</strong></h2>
             	<sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_MEMBER')">
- 	           		<a class="main_inquiry" href="${root }/service/member">고객센터</a> 
+ 	           		<a class="main_inquiry" href="${root }/service/member"><i id="list" class="fas fa-caret-right"></i>고객센터</a> 
             	</sec:authorize>
             	
             	<sec:authorize access="hasRole('ROLE_ADMIN')">
-            		<a class="main_inquiry" href="${root }/service/admin">관리자 고객센터</a>
+            		<a class="main_inquiry" href="${root }/service/admin"><i id="list" class="fas fa-caret-right"></i>관리자 고객센터</a>
             	</sec:authorize>
-            </div>
+            </div>  
         </div>
 
         <div class="empty1">empty1</div>
