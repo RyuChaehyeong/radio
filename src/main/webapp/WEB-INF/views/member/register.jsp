@@ -105,18 +105,6 @@
        text-align: center;
        margin-top: 80px;
    }
-
-   .header2 .header-nav{
-       display: flex;
-       background-color: black;
-       height: 40px;
-       justify-content: flex-end;
-   }
-
-   .header2 .header-nav .header-button {
-       background-color: black;
-   }
-
    .footer{
        height: 200px;
        background-color: rgb(216, 161, 88);
@@ -124,7 +112,7 @@
        width: 100%;
    }
  
-   i {
+   i { 
        color: grey;
        margin-right: 5px;
    }

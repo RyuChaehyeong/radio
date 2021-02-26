@@ -69,7 +69,7 @@
 		padding: 5px 0px 0px 0px;
 		height: 30px;
 	} 
-	.header_title h6 {
+.header_title h6 {
 		margin-left: 10px;	 
 	} 
 .form-floating :placeholder-shown{

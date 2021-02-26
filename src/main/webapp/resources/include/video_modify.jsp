@@ -89,7 +89,7 @@
 
 	<form id="modifyForm" action="${root }/video/video_modify" method="post"  enctype="multipart/form-data">
 		
-		<div>
+	<div class="tit_content">
 		<input hidden id="input1" type="text" name="video_bno" value="${videoVO.video_bno }" readonly class="form-control" >
 		
 		<span>제목</span>
@@ -106,7 +106,10 @@
 		<span>영상</span>
 		<input name="vod" type="file" accept="video/*" class="form-control" 
 					placeholder="영상" id="input5" >
-					
+		
+		<div class="con_input">
+				<textarea cols="10" rows="10" name="content" class="form-control" id="textarea1"></textarea>
+		</div>		
 					
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 		<input type="hidden" name="pageNum" value="${video_Criteria.pageNum }">
@@ -117,8 +120,8 @@
 		
 
 		<input hidden type="submit" />
-		</div>
-	</form>
+	</div>
+</form>
 	
 	
 	<div class="btn-group">

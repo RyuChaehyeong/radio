@@ -144,7 +144,9 @@ th {
 	text-align: center;
 	padding: 8px 0px 8px 0px;
 }
-
+.list-thead thead tr th {
+	text-align: center;s
+}
 .tx {
 	text-align: center;
 }
@@ -482,8 +484,8 @@ th {
 	
 	</div>
 
-
 </div>
+
 
 
 
