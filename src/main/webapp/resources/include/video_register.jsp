@@ -62,6 +62,16 @@
 	margin: 3%;
 	padding: 3%;
 }
+
+.header_title { 
+		border-bottom: 1px silver solid; 
+		margin-top: 10px;	
+		padding: 5px 0px 0px 0px;
+		height: 30px;
+	} 
+	.header_title h6 {
+		margin-left: 10px;	 
+	} 
 .form-floating :placeholder-shown{
 }
 
@@ -96,8 +106,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
+	
+	<div class="header_title" style="border-radius: 0px;">
+		<h6>보이는 라디오</h6>
+	</div>
+		
 <div class="video-register">
 	
 		<form id="registerForm" action="${root }/video/video_register" 

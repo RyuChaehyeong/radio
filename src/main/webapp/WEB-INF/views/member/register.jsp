@@ -83,7 +83,7 @@
        color: white;
    }
    button:hover {      
-       cursor: pointer;
+       cursor: pointer; 
    }
    .nav .nav-flex {
        display: flex;

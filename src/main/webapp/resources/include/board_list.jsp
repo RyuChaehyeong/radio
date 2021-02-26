@@ -337,8 +337,14 @@ th {
     	<tbody >
     	<c:forEach items="${list }" var="boardVO">
     		<tr id="li">
-    			<td class="tx" style="width:70px">${boardVO.board_bno }</td>
-    			
+    			<c:choose>
+    				<c:when test="${boardVO.board_pin eq 1 }">
+    					<td class="tx" style="width:70px"><c:out value="[공지]"/></td>
+    				</c:when>
+    				<c:otherwise>
+    					<td class="tx" style="width:70px">${boardVO.board_bno }</td>
+    				</c:otherwise>
+    			</c:choose>
     			<td class="tx">
     				<!-- 관리자 or 매니저 권한 로그인 시 모든글 읽기 가능 -->
     				<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')" >

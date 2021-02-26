@@ -79,19 +79,24 @@
 </head>
 <body>
 
+
+<div class="header_title" style="border-radius: 0px;">
+	<h6>보이는 라디오</h6>
+</div>
+		
 <div class="video-modify">
-<h1>videoModify</h1>
+
 
 	<form id="modifyForm" action="${root }/video/video_modify" method="post"  enctype="multipart/form-data">
 		
 		<div>
-		<input hidden id="input1" type="text" name="video_bno" value="${videoVO.video_bno }" readonly>
+		<input hidden id="input1" type="text" name="video_bno" value="${videoVO.video_bno }" readonly class="form-control" >
 		
 		<span>제목</span>
-		<input id="input2" type="text" name="video_title" value="${videoVO.video_title }" placeholder="제목">
+		<input id="input2" type="text" name="video_title" value="${videoVO.video_title }" placeholder="제목" class="form-control" >
 		
 		<span>방송일</span>
-		<input id="input3" type="date" name="video_date"  value="${videoVO.video_date }"
+		<input id="input3" type="date" name="video_date"  value="${videoVO.video_date }" class="form-control" 
       			 min="2021-01-01" max="2022-12-31">
       			 
       	<span>썸네일</span>

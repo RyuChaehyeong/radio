@@ -353,7 +353,7 @@ $(document).ready(function() {
 					</div>						
 				</div>
 					 
-																						
+							 															
 			
 		<button style="margin-top: 10px; background-color: lightslategrey; width: 100%; height: 30px; border-radius: 2px 2px;" id="insertCustomer" type="button" onclick="checkAll()" value="회원가입">회원가입</button>
 				

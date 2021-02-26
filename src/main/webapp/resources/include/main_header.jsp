@@ -73,7 +73,7 @@
 	      <li>
 	      	<form action="${root}/info.jsp" method="post">      
 				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">	
-		  		<button type="submit" class="nav_btn" >마이페이지</button>
+		  		<button type="submit" class="nav_btn" style="margin-right: 20px;">마이페이지</button>
 	      	</form>
 	      </li>
 		  <li class="">
