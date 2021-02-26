@@ -93,13 +93,13 @@ var root = '${root}';
 	}
 	.tit_input {
 		border-bottom: 1px solid silver;
+		border-radius: 0px;
 		height: 40px;
 		margin-bottom: 20px;
 	}
 	.tit_input input {
-		border: none;
+		border-radius: 2px 2px;
 		outline: none;
-		s
 	}
 	.tit_content {
 		padding: 20px 100px 20px 100px;  

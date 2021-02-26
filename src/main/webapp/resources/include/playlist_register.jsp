@@ -68,12 +68,13 @@
 	.tit_input {
 		border-bottom: 1px solid silver;
 		height: 40px;
-		margin-bottom: 20px;
+		margin-bottom: 22px;
+		border-radius: 0px;
 	}
 	.tit_input input {
-		border: none;
 		outline: none;
-		s
+		border-radius: 2px 2px;
+		
 	}
 	.tit_content {
 		padding: 20px 100px 20px 100px;  

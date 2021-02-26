@@ -56,7 +56,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="main_header">
+	<div class="main_header"> 
 		<ul>
 	     <sec:authorize access="isAnonymous()">
    			<li class="">

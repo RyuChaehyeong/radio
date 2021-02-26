@@ -83,6 +83,7 @@ body {
 <div class="header_title" style="border-radius: 0px;">
 <h6>선곡표</h6>
 </div>
+
 	<div class="playGet_wrapper">
 	
 		<div class="title_content" style="border-radius: 0px;">
@@ -101,7 +102,7 @@ body {
 				</pre>
 			</div>
 
-		</div> 
+		</div>  
 		
 	<div class="a_root" style="display: flex; justify-content: flex-end;">
 		<a href="${root}/playlist/play">목록</a> <br/>

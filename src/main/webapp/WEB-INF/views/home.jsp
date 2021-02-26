@@ -33,15 +33,16 @@
         display: grid;
         grid-gap: 15px;
         height: 100%;
-        grid-template-columns: 1fr 300px 300px 300px 300px 1fr 1fr;   
-        grid-template-rows:  200px 50px 90px 150px 200px 200px 200px;
+        grid-template-columns: 1fr 300px 300px 300px 300px 1fr;   
+        grid-template-rows:  200px 50px 90px 100px 110px 130px 200px 100px;
         grid-template-areas: 'empty3 header header header header empty4'
                              'empty3 nav nav nav nav empty4'
                              'empty3 today today today today empty4'
-                             'empty3 corner weekday SNS every empty4'
-                             'empty3 list weekday listener every empty4'
-                             'empty3 list radio empty2 empty1 empty4'
-                             'empty3 empty5 empty5 empty2 empty1 empty4' 
+                             'empty3 list weekday SNS inquiry empty4'  
+                             'empty3 list weekday listener inquiry empty4'
+                             'empty3 list weekday radio radio empty4'
+                             'empty3 list empty5 radio radio empty4'
+                             'empty3 sns empty5 empty2 empty1 empty4'      
    }
    .wrapper div{
         border-radius: 5px 5px;      
@@ -60,10 +61,6 @@
         background-color: snow;
         grid-area: today;
    }
-   .corner{
-        background-color: snow;
-        grid-area: corner;
-   }
    .list{
         background-color: snow;
         grid-area: list;
@@ -80,16 +77,19 @@
         background-color: snow;
         grid-area: listener;
    }
-   .SNS{
+   .inquiry{
+        background-color: snow;
+        grid-area: inquiry;
+   }
+    .SNS {
         background-color: snow;
         grid-area: SNS;
    }
+   
    .empty1 {
         grid-area: empty1;
    }
-   .empty2 {
-        grid-area: empty2;
-   }
+  
    .empty3 {
         grid-area: empty3;
    }
@@ -100,7 +100,6 @@
    		grid-area: empty5;
    }
    .every{
-        background-color: snow;
         grid-area: every;
    }
    
@@ -152,7 +151,12 @@
    }
    
    .title1 {
-       padding: 10px 10px 0px 10px;
+       padding: 10px 10px 10px 10px;
+            
+   }
+   .title2 {
+   	   padding: 10px 10px 10px 10px;
+      
    }
 
    .header h1 {
@@ -171,17 +175,23 @@
        background-color: black;
    }
 
-   .footer{
+   .footer{ 
        height: 200px; 
        background-color: rgb(216, 161, 88);
        margin-top: 30px;
        width: 100%;
    }
-
-   .fas {
-       color: grey;
-       margin-right: 10px;
+   .font {
+   		text-decoration: none;
+   		font-size: 20px;
+   		padding-left: 10px;
+   		padding-top: 5px;
    }
+   
+   .font:hover {
+   		text-decoration: none;
+   }
+   
    
    #list {
    	   margin-right: 5px;
@@ -326,9 +336,6 @@
             </c:choose>
         </div>
         
-        <div class="corner">     
-            <jsp:include page="/resources/include/main_corner.jsp" />  
-        </div>
         
         <div class="playlist">
             <strong class="title1"><i id="list" class="far fa-list-alt"></i>선곡표</strong>
@@ -366,20 +373,28 @@
         </div> 
 
         <div class="radio">
-            <strong class="title1">보이는라디오</strong>
-            	<div class="box box_short photo" id="bora">
-				<a href="${root }/video/video_read?video_bno=104&pageNum=1&amount=5"><span class="img"><img src="https://i1.sndcdn.com/artworks-000049909608-wpupq6-t500x500.jpg" 	
-				width="160px" align="left"></span>
-				<span class="btn-bora"></span><span class="content">채형's security강의</span><span class="date">방송일 2021-02-18</span></a></div>
+            <strong class="title2"><i id="list" class="far fa-list-alt"></i>보이는라디오</strong>
+            <div class="box box_short photo" id="bora">
+				<a href="${root }/video/video_read?video_bno=104&pageNum=1&amount=5">
+				<span class="img"><img src="https://i1.sndcdn.com/artworks-000049909608-wpupq6-t500x500.jpg" 	
+				width="300px" align="left"></span>
+				<span>
+				채형's security강의방송일 2021-02-18
+				</span>				
+				</a>
+			</div>
         </div>
 
         <div class="listener">
-            <strong class="title1">다시듣기</strong>           
-        </div>
-
-        <div class="SNS">
-            <strong class="title1">고객센터</strong>
-            <sec:authorize access="permitAll">
+            <strong class="title1"><i id="list" class="far fa-list-alt"></i>다시듣기</strong> 
+            <div style="margin-bottom: 15px; margin-left: 45px; display: flex; align-items: center;">
+            	<i style="font-size: 50px; color: black;" class="far fa-play-circle"></i>  
+            </div>     
+        </div> 
+  
+        <div class="inquiry">
+            <strong class="title1"><i id="list" class="far fa-list-alt"></i>고객센터</strong>
+            <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_MEMBER')">
  	           		<a class="main_inquiry" href="${root }/service/member">고객센터</a>
             	</sec:authorize>
             	
@@ -389,11 +404,17 @@
         </div>
 
         <div class="empty1">empty1</div>
-        <div class="empty2">empty2</div>
-
-        <div class="every">
-            <strong class="title1">홍보</strong>
-        </div>   
+        <div class="SNS">
+        	<strong class="title1"><i id="list" class="far fa-list-alt"></i>SNS</strong>   
+        	<div style="margin-bottom: 45px; margin-left: 50px; display: flex; align-items: center;"> 
+        		<a href="https://www.instagram.com/jangyoura/">
+        			<i style="font-size: 50px; color: black;" class="fab fa-instagram"></i>	 
+        		</a>
+        		<a class="font" href="https://www.instagram.com/jangyoura/">
+        			<span class="font" style="color:grey; padding-left: 10px;"><strong>인스타그램</strong></span> 
+        		</a>
+        	</div> 
+        </div>    
         
         <div class="empty3">empty3</div>
         <div class="empty4">empty4</div> 
