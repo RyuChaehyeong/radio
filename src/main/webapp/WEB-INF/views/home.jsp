@@ -17,6 +17,18 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+function locale (){ 	 
+	return new Date().toLocaleString(); 	 
+	}  
+
+document.getElementById('sysdate').innerHTML = locale(); 
+});
+
+
+</script>
 <style type="text/css">
 	*{	
 	 	margin: 0; 
@@ -34,10 +46,11 @@
         grid-gap: 15px;
         height: 100%;
         grid-template-columns: 1fr 300px 300px 300px 300px 1fr;   
-        grid-template-rows:  200px 50px 90px 100px 110px 130px 200px 100px;
+        grid-template-rows:  200px 50px 90px 30px 70px 110px 130px 200px 100px;
         grid-template-areas: 'empty3 header header header header empty4'
                              'empty3 nav nav nav nav empty4'
-                             'empty3 today today today today empty4'
+                             'empty3 today today today today empty4' 
+                             'empty3 list weekday SNS inquiry empty4'  
                              'empty3 list weekday SNS inquiry empty4'  
                              'empty3 list weekday listener inquiry empty4'
                              'empty3 list weekday radio radio empty4'
@@ -155,8 +168,7 @@
             
    }
    .title2 {
-   	   padding: 10px 10px 10px 10px;
-      
+      padding-top: 5px;
    }
 
    .header h1 {
@@ -213,30 +225,39 @@
        color: white;
    }
    .playlist {
-   overflow:scroll;
-   overflow-x:auto;
-   background-color:snow;
-   text-align:inherit;
-   grid-area:list;
-   font-size:17px;
+   	   overflow:scroll;
+   	   overflow-x:auto;
+  	   background-color:snow;
+  	   text-align:inherit;
+  	   grid-area:list;
+  	   font-size:17px;
    }
    .play-img{
-   border:1px solid;
-   width:75px;
-   height:75px;
-   display:block;
+  		border:1px solid;
+   		width:75px;
+   		height:75px;
+   		display:block;
    }
    
    .description {
-   	padding-left: 20px;
+   		padding-left: 20px;
    }
    
    .evlist i {
-   	padding-left: 8px;
+   		padding-left: 8px;
    }
    
    .li_span {
-   	padding-left: 13px; 
+   		padding-left: 13px; 
+   }
+   .inquiry_body {
+   		padding: 0px 20px 0px 20px;
+   }
+   .main_inquiry {
+   		color: grey;
+   }
+   .description {
+   		padding-top: 5px; 
    }
 
 </style>
@@ -255,10 +276,14 @@
                 <jsp:include page="/resources/include/main_nav.jsp" />            
             </div>
 
-        <div class="today">
+        <div class="today" style="display: flex; padding-left: 20px; padding-top: 20px;">
+        	<h4><strong style="margin:20px 15px 0px 20px;">Today
+        	<strong style="margin:20px 0px 0px 0px; color: silver">|</strong>  
+        	</strong></h4>   
+        	 
         	<c:choose>
         		<c:when test="${today eq 2}">
-            		<strong class="title1">[월요일] 영업합니다</strong> 
+            		<strong class="title2">[월요일] 영업합니다</strong>  
             		<div class="description">
 						<p>
 							"당신이 미처 몰랐던 숨겨진 노래들, 영업해드립니다"
@@ -269,7 +294,7 @@
             	</c:when>
 
         		<c:when test="${today eq 3}">
-            		<strong class="title1">[화요일] 뮤직에세이, 노래 속 책갈피</strong> 
+            		<strong class="title2">[화요일] 뮤직에세이, 노래 속 책갈피</strong> 
             		<div class="description">
 						<p>
 							"당신에게 음악이란 무엇입니까?"
@@ -280,7 +305,7 @@
             	</c:when>
 
         		<c:when test="${today eq 4}">
-            		<strong class="title1">[수요일] 뮤직에세이, 노래 속 책갈피</strong> 
+            		<strong class="title2">[수요일] 뮤직에세이, 노래 속 책갈피</strong> 
             		<div class="description">
 						<p>
 							"당신에게 음악이란 무엇입니까?"
@@ -291,7 +316,7 @@
             	</c:when>
 
         		<c:when test="${today eq 5}">
-            		<strong class="title1">[목요일] 극한일상</strong> 
+            		<strong class="title2">[목요일] 극한일상</strong> 
             		<div class="description">
 						<p>
 							"극으로 치닿는 고민부터 그까이거 싶은 고민까지!"
@@ -302,7 +327,7 @@
             	</c:when>
 
         		<c:when test="${today eq 6}">
-            		<strong class="title1">[금요일] 전지적 작사 시점</strong> 
+            		<strong class="title2">[금요일] 전지적 작사 시점</strong> 
             		<div class="description">
 						<p>
 							"그냥 듣던 노래도, 전지적 작사 시점으로 들으면 다르다?"
@@ -313,7 +338,7 @@
             	</c:when>
 
         		<c:when test="${today eq 7}">
-            		<strong class="title1">[토요일] SoSo썰_의뢰 사연</strong> 
+            		<strong class="title2">[토요일] SoSo썰_의뢰 사연</strong> 
             		<div class="description">
 						<p>
 							"살다보면 찾아오는 선택의 순간! 혹시 그 선택의 순간에서 길을 잃으셨나요?"
@@ -324,7 +349,7 @@
             	</c:when>
 
 				<c:otherwise>
-					<strong class="title1">[일요일] 북 트래블러</strong> 
+					<strong class="title2">[일요일] 북 트래블러</strong>  
             		<div class="description">
 						<p>
 							"어디든 보내드립니다."
@@ -373,42 +398,52 @@
         </div> 
 
         <div class="radio">
-            <strong class="title2"><i id="list" class="far fa-list-alt"></i>보이는라디오</strong>
-            <div class="box box_short photo" id="bora">
+            <strong class="title1"><i id="list" class="far fa-list-alt"></i>보이는라디오</strong>
+            <div class="box box_short photo" id="bora"> 
 				<a href="${root }/video/video_read?video_bno=104&pageNum=1&amount=5">
 				<span class="img"><img src="https://i1.sndcdn.com/artworks-000049909608-wpupq6-t500x500.jpg" 	
-				width="300px" align="left"></span>
-				<span>
-				채형's security강의방송일 2021-02-18
-				</span>				
+				width="250px" height="200" align="left"></span>
 				</a>
+				<span>
+				<a href="${root }/video/video_read?video_bno=104&pageNum=1&amount=5">
+				채형's security강의방송일 2021-02-18
+				</a>
+				</span>				
+				
 			</div>
         </div>
 
         <div class="listener">
             <strong class="title1"><i id="list" class="far fa-list-alt"></i>다시듣기</strong> 
-            <div style="margin-bottom: 15px; margin-left: 45px; display: flex; align-items: center;">
-            	<i style="font-size: 50px; color: black;" class="far fa-play-circle"></i>  
-            </div>     
+            <div style="margin-left: 45px; display: flex; items-align: center;">
+            	<i style="font-size: 40px; color: black;" class="far fa-play-circle"></i>          	
+                <span id="sysdate" style="color:grey; padding-left: 10px; font-size: 15px;"></span>   
+            </div>    
+            <div>
+            	  
+            </div> 
         </div> 
   
         <div class="inquiry">
             <strong class="title1"><i id="list" class="far fa-list-alt"></i>고객센터</strong>
-            <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_MEMBER')">
- 	           		<a class="main_inquiry" href="${root }/service/member">고객센터</a>
+            <div class="inquiry_body">
+            	<h2><strong style="margin-bottom: 30px;">1 : 1 문의하기</strong></h2>
+            	<sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_MEMBER')">
+ 	           		<a class="main_inquiry" href="${root }/service/member">고객센터</a> 
             	</sec:authorize>
             	
             	<sec:authorize access="hasRole('ROLE_ADMIN')">
             		<a class="main_inquiry" href="${root }/service/admin">관리자 고객센터</a>
             	</sec:authorize>
+            </div>
         </div>
 
         <div class="empty1">empty1</div>
         <div class="SNS">
         	<strong class="title1"><i id="list" class="far fa-list-alt"></i>SNS</strong>   
-        	<div style="margin-bottom: 45px; margin-left: 50px; display: flex; align-items: center;"> 
-        		<a href="https://www.instagram.com/jangyoura/">
-        			<i style="font-size: 50px; color: black;" class="fab fa-instagram"></i>	 
+        	<div style="margin-bottom: 30px; margin-left: 50px; display: flex; align-items: center;"> 
+        		<a href="https://www.instagram.com/jangyoura/"> 
+        			<i style="font-size: 40px; color: black;" class="fab fa-instagram"></i>	 
         		</a>
         		<a class="font" href="https://www.instagram.com/jangyoura/">
         			<span class="font" style="color:grey; padding-left: 10px;"><strong>인스타그램</strong></span> 
