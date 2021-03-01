@@ -21,8 +21,28 @@ var bno = ${board.bno};
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script src="${root }/resources/js/board_replay.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	var operForm = $("#oper-Form");
+	$("button[data-oper='delete']").click(function(e){
+		if(parent.flag) { // 댓글이 있으면
+			alert("댓글이 존재하는 게시글은 삭제할 수 없습니다.");  
+			return;	
+		}
+	
+		operForm.append("<input type='hidden' name='bno' value='"+${board.bno}+"'>");
+		operForm.append("<input type='hidden' name='${_csrf.parameterName}' value='${_csrf.token }'>");
+
+		operForm.attr("method", "post");
+		operForm.attr("action", root + "/replay/remove");
+	
+		operForm.submit();
+	});
+
+});
+</script>
 <style type="text/css">
 	body {
 		height: 100%; 
@@ -74,19 +94,21 @@ var bno = ${board.bno};
 		weight: 30px;
 		height: 35px; 
 		padding: 0px 5px 0px 5px;	 
-	}
+	} 
 	
 	.mod_btn {
 		background-color: lightgrey;
-		color: snow;
+		color: grey;
 		margin-right: 5px;
 		padding: 2px 4px 2px 4px;
 		border-radius: 3px;
 		height: 27px;
+		outline: none;
 	}
 	.mod_btn:hover {
 		color: grey;
 		text-decoration: none;
+		outline: none;
 	}
 
 	.media-body {
@@ -137,7 +159,7 @@ var bno = ${board.bno};
 					
 					<div class="audio_div">
 						 <%-- <img alt="" class="img-fluid" src="${staticPath}${board.filename }">--%>						
-						 <audio src="${staticPath}${board.filename }" width='600' controls autoplay></audio>
+						 <audio src="${ReplayStaticPath}${board.filename }" width='600' controls autoplay></audio>
 		
 					</div>
 				</div>
@@ -145,7 +167,7 @@ var bno = ${board.bno};
 				
 					
 					<div class="mod_div" style="display: flex; justify-content: flex-end;">
-						
+					<button data-oper="delete" type="button" class="mod_btn">삭제</button>	  
 							<c:url value="/replay/modify" var="modifyLink">
 							<c:param name="bno" value="${board.bno }"></c:param>
 							<c:param name="pageNum" value="${cri.pageNum }"></c:param>
@@ -159,6 +181,17 @@ var bno = ${board.bno};
 							</a>
 						</div>
 					</div>
+					
+<div class="d-none">
+	<form id="oper-Form" method="get">
+		<input type="hidden" name="pageNum" value="${cri.pageNum }">
+		<input type="hidden" name="amount" value="${cri.amount }">
+		<input type="hidden" name="type" value="${cri.type }">
+		<input type="hidden" name="keyword" value="${cri.keyword }">	
+		<input hidden type="submit"/>
+	</form>
+
+</div>
 				
 
 	<!-- 댓글 목록 container -->			

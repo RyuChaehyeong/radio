@@ -17,10 +17,10 @@
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
  
 <style type="text/css">
-	 body {
-	background-image: url("../resources/pic/background.jpg");
-	background-size: contain;
-	}	
+	body {
+		background-image: url("${root}/resources/pic/Lovepik_com lake boat night backgroun.jpg");
+		background-size:contain;
+	}
 
 @charset "UTF-8";
 *{
@@ -33,7 +33,7 @@
         grid-gap: 15px;
         height: 100%;
         grid-template-columns: 1fr 300px 300px 300px 300px 1fr ;
-        grid-template-rows:  200px 50px 1fr 1fr 1fr 1fr ;
+        grid-template-rows:  400px 50px 1fr 1fr 1fr 1fr ;
         grid-template-areas: 'empty2 header header header header empty3'
                              'empty2 nav nav nav nav empty3'
                              'empty2 main main main main empty3'
@@ -93,7 +93,7 @@
        border-radius: 5px 5px;
        align-items: center;
        justify-content: center;
-       background-color: thistle;     
+       background-color: peru;     
    }
    .title1 {
        padding: 10px 10px 0px 10px;

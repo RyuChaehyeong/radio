@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -16,7 +16,6 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style type="text/css">
 	.main_header ul {
 		list-style: none;
@@ -65,19 +64,19 @@
    		</sec:authorize>
 	      <sec:authorize access="isAnonymous()">
 		      <li class="">
-		        <a class="nav_list" href="/customLogin">로그인</a>
+		        <a class="nav_list" href="${root}/customLogin">로그인</a>
 		      </li>
 	      </sec:authorize>
 	      
 	      <sec:authorize access="isAuthenticated()">
 	      <li>
-	      	<form action="${root}/info.jsp" method="post">      
+	      	<form action="${root}/member/mypage">      
 				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">	
 		  		<button type="submit" class="nav_btn" style="margin-right: 20px;">마이페이지</button>
 	      	</form>
 	      </li>
 		  <li class="">
-	      	<form action="/logout" method="post">
+	      	<form action="${root}/logout" method="post">
 		        <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 		        <button type="submit" class="nav_btn">로그아웃</button>
 	      	</form>

@@ -10,6 +10,7 @@
 var root = '${root}';
 </script>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -18,7 +19,6 @@ var root = '${root}';
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(e){
@@ -52,7 +52,7 @@ var root = '${root}';
 	}
 	
 	.header_title h6 {
-		margin-left: 10px;	
+		margin-left: 10px;	 
 	} 
 	
 	.register_wrapper {
@@ -65,7 +65,8 @@ var root = '${root}';
 	.tit_input input {
 		outline: none;
 		border: 1px solid silver;
-		
+		border-radius: 5px 5px; 
+		padding-left: 10px;
 	}
 	
 	.con_input textarea {
@@ -74,11 +75,13 @@ var root = '${root}';
 		border: 1px silver solid;
 		margin-bottom: 10px;
 		border-radius: 5px 5px;
+		padding-left: 10px;
+		padding-top: 10px;
 	}
 	
 	.reg_btn {
 		background-color: lightgrey;
-		color: snow;
+		color: grey;
 		padding: 2px 4px 2px 4px;
 		border-radius: 3px;
 		height: 27px;
@@ -92,21 +95,18 @@ var root = '${root}';
 		color: grey;
 	}
 	.tit_input {
-		border-bottom: 1px solid silver;
-		border-radius: 0px;
 		height: 40px;
 		margin-bottom: 20px;
 	}
 	.tit_input input {
-		border-radius: 2px 2px;
 		outline: none;
 	}
 	.tit_content {
-		padding: 20px 100px 20px 100px;  
-		background-color: white;
+			padding: 0px 100px 20px 100px;  
+		background-color: rgb(241, 241, 241);
 		margin-bottom: 10px;
-		margin-left: 10px;
-		margin-right: 10px;
+		margin-left: 20px;
+		margin-right: 20px;
 		border-radius: 5px 5px;
 	}
 	.wri_input input {
@@ -119,15 +119,16 @@ var root = '${root}';
 	.wri_input {
 		margin-bottom: 20px;	
 	}
-	 
-	.reg_btn {
-		background-color: darkgrey;
-		border-radius: 5px 5px;
-	}
-	
+		
 	.reg_btn:hover {
 		border: none;
 		outline: none;
+	}
+	
+	.tit_header {
+		padding: 30px 0px 10px 0px;
+		margin:0px 5px 20px 10px;
+		font-weight: bold;
 	}
 	
 </style>
@@ -142,6 +143,7 @@ var root = '${root}';
 				<form id="registerForm" action="${root }/board/register" method="post">
 							
 				<div class="tit_content">
+				<div class="tit_header">글 등록</div>
 					<div class="tit_input">
 						<input  type="text" name="board_title" class="" placeholder="제목을 입력하세요.">
 					</div>

@@ -9,6 +9,7 @@
 	var root = '${root}';
 </script>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -17,7 +18,6 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(e){
@@ -63,11 +63,14 @@
 	}
 	
 	.tit_input {
+		height: 40px;
 		margin-bottom: 20px;
 	}
 	.tit_input input {
-		outline: none;
-		border: 1px solid silver;
+	outline: none;
+		border: 1px silver solid;
+		border-radius: 5px 5px; 
+		padding-left: 10px;
 		
 	}
 	
@@ -77,11 +80,13 @@
 		border: 1px silver solid;
 		margin-bottom: 10px;
 		border-radius: 5px 5px;
+		padding-left: 10px;
+		padding-top: 10px;	
 	}
 	
 	.mod_btn {
-		background-color: darkgrey;
-		color: snow;
+		background-color: lightgrey;
+		color: grey;
 		padding: 2px 4px 2px 4px;
 		border-radius: 3px;
 		height: 27px;
@@ -99,22 +104,17 @@
 		background-color: snow;
 		color: grey;
 	}
-	.tit_input {
-		border-bottom: 1px solid silver;
-		border-radius: 0px;
-		height: 40px;
-		margin-bottom: 20px;
-	}
+
 	.tit_input input {
 		border-radius: 2px 2px;
 		outline: none;
 	}
 	.tit_content {
-		padding: 20px 100px 20px 100px;  
-		background-color: white;
+		padding: 0px 100px 20px 100px;  
+		background-color: rgb(241, 241, 241);
 		margin-bottom: 10px;
-		margin-left: 10px;
-		margin-right: 10px;
+		margin-left: 20px;
+		margin-right: 20px;
 		border-radius: 5px 5px;
 	}
 	.wri_input input {
@@ -126,6 +126,12 @@
 	
 	.wri_input {
 		margin-bottom: 20px;	
+	}
+	
+	.tit_header {
+		padding: 30px 0px 10px 0px;
+		margin:0px 5px 20px 10px;
+		font-weight: bold;
 	}
 </style>
 <title>Insert title here</title>
@@ -139,6 +145,7 @@
 		
 				<form id="modifyForm" action="${root }/board/modify" method="post">
 				<div class="tit_content">
+					<div class="tit_header">글 수정</div>
 					<div class="tit_input">
 								<input hidden class="form-control" name="board_bno" type="text" id="input3" readonly value="${boardVO.board_bno }" />
 								<input value='<c:out value="${boardVO.board_title}" />' type="text"

@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -15,7 +16,6 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(e){
@@ -61,19 +61,42 @@
 	margin: 3%;
 	padding: 3%;
 }
-
+.header_title { 
+		border-bottom: 1px silver solid; 
+		margin-top: 10px;	
+		padding: 5px 0px 0px 0px;
+		height: 30px;
+	} 
+.header_title h6 {
+		margin-left: 10px;	 
+	} 
 .tit_content {
-		padding: 40px 100px 40px 100px;  
-		background-color: white;
+		padding: 0px 100px 20px 100px;  
+		background-color: rgb(241, 241, 241);
 		margin-bottom: 10px;
-		margin-left: 10px;
-		margin-right: 10px;
+		margin-left: 20px;
+		margin-right: 20px;
 		border-radius: 5px 5px;
 }
 
 .tit_content input {
 	margin-bottom: 20px;
 	border: 1px solid grey;
+}
+
+.mod_btn {
+	background-color: lightgrey;
+	color: grey;
+	padding: 2px 4px 2px 4px;
+	border-radius: 3px;
+	height: 27px;
+	margin-right: 5px;
+}
+
+.tit_header {
+		padding: 30px 0px 10px 0px;
+		margin:0px 5px 20px 10px;
+		font-weight: bold;
 }
 </style>
 </head>
@@ -91,7 +114,7 @@
 		
 	<div class="tit_content">
 		<input hidden id="input1" type="text" name="video_bno" value="${videoVO.video_bno }" readonly class="form-control" >
-		
+		<div class="tit_header">글 수정</div>
 		<span>제목</span>
 		<input id="input2" type="text" name="video_title" value="${videoVO.video_title }" placeholder="제목" class="form-control" >
 		
@@ -106,11 +129,7 @@
 		<span>영상</span>
 		<input name="vod" type="file" accept="video/*" class="form-control" 
 					placeholder="영상" id="input5" >
-		
-		<div class="con_input">
-				<textarea cols="10" rows="10" name="content" class="form-control" id="textarea1"></textarea>
-		</div>		
-					
+						
 		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 		<input type="hidden" name="pageNum" value="${video_Criteria.pageNum }">
 		<input type="hidden" name="amount" value="${video_Criteria.amount }">
@@ -124,9 +143,9 @@
 </form>
 	
 	
-	<div class="btn-group">
-		<button type="button" data-oper="modify" class="btn btn-secondary">수정하기</button>
-		<button type="button" data-oper="cancel" class="btn btn-secondary">취소</button>
+	<div class="btn-group" style="display: flex; justify-content: space-between;">
+		<button type="button" data-oper="modify" class="mod_btn">수정하기</button>
+		<button type="button" data-oper="cancel" class="mod_btn">취소</button>
 	</div>
 	
 

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link rel="stylesheet" href="${root }/resources/css/all.min.css"> 
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -23,7 +23,7 @@ var root = '${root}';
 </script>
 <script>
 
-var num = ${boardVO.board_bno };
+var num = "${boardVO.board_bno }";
 var replyer= null;
 <sec:authorize access="isAuthenticated()">
 	replyer = '<sec:authentication property="principal.username"/>';
@@ -205,9 +205,9 @@ var csrfTokenValue = "${_csrf.token}";
 	});
 </script>
 <style type="text/css">
-	 body {
-	background-image: url("/resources/pic/background.jpg");
-	background-size: cover;
+	body {
+		background-image: url("${root}/resources/pic/Lovepik_com lake boat night backgroun.jpg");
+		background-size:contain;
 	}	
 	
 	.nav-menu {

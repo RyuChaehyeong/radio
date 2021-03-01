@@ -10,6 +10,7 @@
 var root = '${root}';
 </script>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -18,7 +19,6 @@ var root = '${root}';
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script>
 	$(document).ready(function() {
 		
@@ -128,10 +128,6 @@ var root = '${root}';
 	font-size: 18px;
 }
 
-.listTable {
-	height: 500px;
-	
-}
 
 tr { 
 	border-bottom: solid 1px silver;
@@ -144,9 +140,7 @@ th {
 	text-align: center;
 	padding: 8px 0px 8px 0px;
 }
-.list-thead thead tr th {
-	text-align: center;s
-}
+
 .tx {
 	text-align: center;
 }
@@ -224,10 +218,11 @@ th {
 	.reg_btn {
 		padding: 2px 4px 2px 4px;
 		margin-right: 5px;
-		background-color: darkgrey;
-		border-radius: 4px 4px;
+		background-color: lightgrey;
+		border-radius: 2px 2px;
 		outline: none;
 		border: none; 
+		color: grey;
 	}
 	
 	.reg_btn:hover {
@@ -245,7 +240,7 @@ th {
 <div class="weekList">
   <div class="listHeader">
         	<c:choose>
-        		<c:when test="${today eq 2}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 1}">
             		<strong class="title1">[월요일] 영업합니다</strong> 
             		<div class="description">
 						<p>
@@ -256,7 +251,7 @@ th {
 					</div>
             	</c:when>
 
-        		<c:when test="${today eq 3}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 2}">
             		<strong class="title1">[화요일] 뮤직에세이, 노래 속 책갈피</strong> 
             		<div class="description">
 						<p>
@@ -267,7 +262,7 @@ th {
 					</div>
             	</c:when>
 
-        		<c:when test="${today eq 4}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 3}">
             		<strong class="title1">[수요일] 뮤직에세이, 노래 속 책갈피</strong> 
             		<div class="description">
 						<p>
@@ -278,7 +273,7 @@ th {
 					</div>
             	</c:when>
 
-        		<c:when test="${today eq 5}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 4}">
             		<strong class="title1">[목요일] 극한일상</strong> 
             		<div class="description">
 						<p>
@@ -289,7 +284,7 @@ th {
 					</div>
             	</c:when>
 
-        		<c:when test="${today eq 6}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 5}">
             		<strong class="title1">[금요일] 전지적 작사 시점</strong> 
             		<div class="description">
 						<p>
@@ -300,7 +295,7 @@ th {
 					</div>
             	</c:when>
 
-        		<c:when test="${today eq 7}">
+        		<c:when test="${pageInfo.board_Criteria.day eq 6}">
             		<strong class="title1">[토요일] SoSo썰_의뢰 사연</strong> 
             		<div class="description">
 						<p>
@@ -325,9 +320,9 @@ th {
             </div>
   
   <div class="">
-    <table class="list-table"> 
+    <table class="list_table"> 
     
-    	<thead class="list-thead" style="background-color: darkgrey; color: snow;">
+    	<thead class="list_thead" style="background-color: lightgrey; color: snow;">
     		<tr>
     			<th>번호</th>
     			<th>제목</th>
@@ -358,7 +353,7 @@ th {
  					<!-- 로그인 안했을 시 공지글 제외하고는 못읽음 -->
  					<sec:authorize access="isAnonymous()">
  						<c:choose>
- 							<c:when test="${boardVO.board_bno eq 1 }">
+ 							<c:when test="${boardVO.board_bno eq 383 }">
  								<a class="move" href="<c:out value='${boardVO.board_bno}'/>">
     								<c:out value="${boardVO.board_title }"/>
     							</a>
@@ -375,7 +370,7 @@ th {
  							<sec:authentication property='principal.username'/>
  						</c:set>
  						<c:choose>
- 							<c:when test="${(boardVO.board_bno eq 1) or (boardVO.board_id eq loginID)  }">
+ 							<c:when test="${(boardVO.board_bno eq 383) or (boardVO.board_id eq loginID)  }">
  								<a class="move" href="<c:out value='${boardVO.board_bno}'/>">
     								<c:out value="${boardVO.board_title }"/>
     							</a>
@@ -408,7 +403,8 @@ th {
  	 	</div>
  	 	<div>
   		<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
-  		<button data-oper="modify" type="button" class="reg_btn">공지사항 수정</button>
+  		<button data-oper="modify" type="button" class="reg_btn" 
+  		style="color: lightslategrey; font-weight: bold; background-color: snow; border: 1px solid lightslategrey">공지사항 수정</button>
   		</sec:authorize>
  	 	</div>
   	</div> 
@@ -484,8 +480,8 @@ th {
 	
 	</div>
 
-</div>
 
+</div>
 
 
 

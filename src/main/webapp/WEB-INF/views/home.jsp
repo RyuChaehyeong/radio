@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">   
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -15,13 +15,14 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
 <script type="text/javascript">
 $(document).ready(function() {
 	
 function locale (){ 	 
-	return new Date().toLocaleString(); 	 
+	var date = new Date().toLocaleString();
+	var d = date.substring(0, date.indexOf('. 오'));
+	return d; 	 
 	}  
 
 document.getElementById('sysdate').innerHTML = locale(); 
@@ -36,9 +37,9 @@ document.getElementById('sysdate').innerHTML = locale();
     }
 
 	body {
-	background-image: url("resources/pic/background.jpg");
-	background-size: cover; 
-	}
+		background-image: url("${root}/resources/pic/Lovepik_com lake boat night backgroun.jpg");
+		background-size:contain;
+	}	
 	
    .wrapper{      
         margin: 0 10% 0 10%;
@@ -46,15 +47,15 @@ document.getElementById('sysdate').innerHTML = locale();
         grid-gap: 15px;
         height: 100%;
         grid-template-columns: 1fr 300px 300px 300px 300px 1fr;   
-        grid-template-rows:  200px 50px 90px 30px 70px 110px 130px 200px 100px;
+        grid-template-rows:  400px 50px 90px 30px 70px 110px 130px 200px 100px;
         grid-template-areas: 'empty3 header header header header empty4'
                              'empty3 nav nav nav nav empty4'
                              'empty3 today today today today empty4' 
-                             'empty3 list weekday SNS inquiry empty4'  
-                             'empty3 list weekday SNS inquiry empty4'  
-                             'empty3 list weekday listener inquiry empty4'
-                             'empty3 list weekday radio radio empty4'
-                             'empty3 list empty5 radio radio empty4'
+                             'empty3 playlist weekday SNS inquiry empty4'  
+                             'empty3 playlist weekday SNS inquiry empty4'  
+                             'empty3 playlist weekday listener inquiry empty4'
+                             'empty3 playlist weekday radio radio empty4'
+                             'empty3 playlist empty5 radio radio empty4'
                              'empty3 sns empty5 empty2 empty1 empty4'      
    }
    .wrapper div{
@@ -72,11 +73,15 @@ document.getElementById('sysdate').innerHTML = locale();
    }
    .today{
         background-color: snow;
-        grid-area: today;
+        grid-area: today; 
    }
-   .list{
-        background-color: snow;
-        grid-area: list;
+   .playlist{  
+       grid-area: playlist; 
+       overflow:scroll;
+   	   overflow-x:auto;	    
+  	   text-align:inherit;   
+  	   font-size:17px;
+  	   background-color: snow;
    }
    .weekday{
         background-color: snow;
@@ -148,7 +153,7 @@ document.getElementById('sysdate').innerHTML = locale();
        border-radius: 5px 5px;
        align-items: center;
        justify-content: center;
-       background-color: thistle;
+       background-color: peru;
        
    }
    
@@ -223,15 +228,8 @@ document.getElementById('sysdate').innerHTML = locale();
    .week {
        background-color: black;
        color: white;
-   }
-   .playlist {
-   	   overflow:scroll;
-   	   overflow-x:auto;
-  	   background-color:snow;
-  	   text-align:inherit;
-  	   grid-area:list;
-  	   font-size:17px;
-   }
+   } 
+
    .play-img{
   		border:1px solid;
    		width:75px;
@@ -274,95 +272,83 @@ document.getElementById('sysdate').innerHTML = locale();
 
             <div class="nav">
                 <jsp:include page="/resources/include/main_nav.jsp" />            
-            </div>
+            </div> 
 
-        <div class="today" style="display: flex; padding-left: 20px; padding-top: 20px;">
-        	<h4><strong style="margin:20px 15px 0px 20px;">Today
-        	<strong style="margin:20px 0px 0px 0px; color: silver">|</strong>  
-        	</strong></h4>   
+        <div class="today" style="display: flex; padding-left: 20px; padding-top: 18px;"> 
+        	<h4><strong style="margin:0px 15px 0px 20px;">Today
+        	<strong style="margin:0px 15px 0px 20px; color: silver">|</strong> 
+        	</strong></h4> 
+        	 
         	 
         	<c:choose>
         		<c:when test="${today eq 2}">
             		<strong class="title2">[월요일] 영업합니다</strong>  
-            		<div class="description">
-						<p>
+            		<div class="description">					
 							"당신이 미처 몰랐던 숨겨진 노래들, 영업해드립니다"
 							<br/>
-							"데이브레이크 문진수님과 함께하는, 본격 곡 영업소"
-						</p>					
+							"데이브레이크 문진수님과 함께하는, 본격 곡 영업소"										
 					</div>
             	</c:when>
 
         		<c:when test="${today eq 3}">
             		<strong class="title2">[화요일] 뮤직에세이, 노래 속 책갈피</strong> 
             		<div class="description">
-						<p>
 							"당신에게 음악이란 무엇입니까?"
 							<br/>
-							"음악에 대한 여러분의 생각과 또 그렇게 생각하게 된 사연을 자유롭게 올려주세요~"
-						</p>					
+							"음악에 대한 여러분의 생각과 또 그렇게 생각하게 된 사연을 자유롭게 올려주세요~"					
 					</div>
             	</c:when>
 
         		<c:when test="${today eq 4}">
             		<strong class="title2">[수요일] 뮤직에세이, 노래 속 책갈피</strong> 
             		<div class="description">
-						<p>
 							"당신에게 음악이란 무엇입니까?"
 							<br/>
-							"음악에 대한 여러분의 생각과 또 그렇게 생각하게 된 사연을 자유롭게 올려주세요~"
-						</p>					
+							"음악에 대한 여러분의 생각과 또 그렇게 생각하게 된 사연을 자유롭게 올려주세요~"					
 					</div>
             	</c:when>
 
         		<c:when test="${today eq 5}">
             		<strong class="title2">[목요일] 극한일상</strong> 
             		<div class="description">
-						<p>
 							"극으로 치닿는 고민부터 그까이거 싶은 고민까지!"
 							<br/>
-							"극정없는 DJ 문진수님과 극렬하게 여러분의 일상의 짐을 나눠드릴게요"
-						</p>					
+							"극정없는 DJ 문진수님과 극렬하게 여러분의 일상의 짐을 나눠드릴게요"				
 					</div>
             	</c:when>
 
         		<c:when test="${today eq 6}">
             		<strong class="title2">[금요일] 전지적 작사 시점</strong> 
             		<div class="description">
-						<p>
 							"그냥 듣던 노래도, 전지적 작사 시점으로 들으면 다르다?"
 							<br/>
-							"평소에 마음을 흔들거나, 힘을 주는 가사말 들을 알려주세요"
-						</p>					
+							"평소에 마음을 흔들거나, 힘을 주는 가사말 들을 알려주세요"				
 					</div>
             	</c:when>
 
         		<c:when test="${today eq 7}">
-            		<strong class="title2">[토요일] SoSo썰_의뢰 사연</strong> 
-            		<div class="description">
-						<p>
+            		<strong class="title2">[토요일] SoSo썰_의뢰 사연</strong>  
+            		<div class="description">					
 							"살다보면 찾아오는 선택의 순간! 혹시 그 선택의 순간에서 길을 잃으셨나요?"
 							<br/>
-							"그럴때  &ltSoSo썰&gt에 찾아와 사연을 올려주세요~"
-						</p>					
+							"그럴때  &ltSoSo썰&gt에 찾아와 사연을 올려주세요~" 					
 					</div>
             	</c:when>
 
 				<c:otherwise>
 					<strong class="title2">[일요일] 북 트래블러</strong>  
             		<div class="description">
-						<p>
 							"어디든 보내드립니다."
 							<br/>
-							"책 속에서 떠나는 일요일 밤의 배낭여행"
-						</p>					
+							"책 속에서 떠나는 일요일 밤의 배낭여행"				
 					</div>
 				</c:otherwise>            	
             </c:choose>
         </div>
         
         
-        <div class="playlist">
+        <div class="playlist"> 
+        <div>
             <strong class="title1"><i id="list" class="far fa-list-alt"></i>선곡표</strong>
         	<ul class="everyDay" style="list-style: none;">
         		<li class="evlist"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
@@ -388,9 +374,9 @@ document.getElementById('sysdate').innerHTML = locale();
         		이밤을 빌려 말해요<br/><span class="li_span">10CM</span></a></li><br>
         		<li class="evlist"><i class="fas fa-caret-right"></i><a class="evA" href="${root}/playlist/play">
         		<img class="play-img" alt="방탄소년단" align="left" src="https://image.bugsm.co.kr/album/images/350/9887/988734.jpg" >
-        		취기를 빌려<br/><span class="li_span">산들</span><br><span class="li_span">(취향저격그녀&산들)</span></a></li>
-        		
+        		취기를 빌려<br/><span class="li_span">산들</span><br><span class="li_span">(취향저격그녀&산들)</span></a></li>        		
         	</ul>
+        </div>
         </div>
         
         <div class="weekday"> 
@@ -417,7 +403,7 @@ document.getElementById('sysdate').innerHTML = locale();
             <strong class="title1"><i id="list" class="far fa-list-alt"></i>다시듣기</strong> 
             <div style="margin-left: 45px; display: flex; items-align: center;">
             	<i style="font-size: 40px; color: black;" class="far fa-play-circle"></i>          	
-                <span id="sysdate" style="color:grey; padding-left: 10px; font-size: 15px;"></span>   
+                <span id="sysdate" style="color:grey; padding-left: 20px; padding-top: 10px; font-size: 15px;"></span>   
             </div>    
             <div>
             	  
@@ -438,7 +424,7 @@ document.getElementById('sysdate').innerHTML = locale();
             </div>  
         </div>
 
-        <div class="empty1">empty1</div>
+        <div class="empty1"></div>
         <div class="SNS">
         	<strong class="title1"><i id="list" class="far fa-list-alt"></i>SNS</strong>   
         	<div style="margin-bottom: 30px; margin-left: 50px; display: flex; align-items: center;"> 
@@ -448,12 +434,12 @@ document.getElementById('sysdate').innerHTML = locale();
         		<a class="font" href="https://www.instagram.com/jangyoura/">
         			<span class="font" style="color:grey; padding-left: 10px;"><strong>인스타그램</strong></span> 
         		</a>
-        	</div> 
+        	</div>  
         </div>    
         
-        <div class="empty3">empty3</div>
-        <div class="empty4">empty4</div> 
-        <div class="empty5">empty5</div> 
+        <div class="empty3"></div>
+        <div class="empty4"></div> 
+        <div class="empty5"></div> 
        
     </div>   
     

@@ -23,6 +23,8 @@
 var csrfHeaderName = "${_csrf.headerName}";
 var csrfTokenValue = "${_csrf.token}";
 
+var flag = false;
+
 	$(document).ajaxSend(function(e, xhr, options) {
 		xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
 	});
@@ -42,6 +44,13 @@ var csrfTokenValue = "${_csrf.token}";
 				// console.log(list);
 				console.log(list);
 				var replyUL = $("#reply-ul");
+				
+				console.log(list.length);
+				if (list.length > 0) {
+					flag = true;
+				} else {
+					flag = false;
+				}
 				replyUL.empty();
 				for (var i = 0; i < list.length; i++) {
 					var replyLI = '<li class="media" data-rno="' 
@@ -147,8 +156,8 @@ var csrfTokenValue = "${_csrf.token}";
 
 <style type="text/css">
 	 body {
-	background-image: url("../resources/pic/background.jpg");
-	background-size: cover;
+		background-image: url("${root}/resources/pic/Lovepik_com lake boat night backgroun.jpg");
+		background-size:contain;
 	}	
 	
 	.nav-menu {

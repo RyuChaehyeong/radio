@@ -10,6 +10,7 @@
 	var root = '${root}'
 </script>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -18,11 +19,12 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript" src="${root }/resources/js/board_reply.js"></script>
 
 
 <script type="text/javascript">
+
+
 	$(document).ready(function(e){
 		
 		var operForm = $("#operForm");
@@ -43,6 +45,11 @@
 		
 		
 		$("button[data-oper='delete']").click(function(e){
+			if(parent.flag) { // 댓글이 있으면
+				alert("댓글이 존재하는 게시글은 삭제할 수 없습니다.\n관리자에게 문의하세요.");
+				return;	
+			}
+			
 			operForm.append("<input type='hidden' name='board_bno' value='"+${boardVO.board_bno}+"'>");
 			operForm.append("<input type='hidden' name='${_csrf.parameterName}' value='${_csrf.token }'>");
 		
@@ -110,7 +117,7 @@
 	
 	.user_btn {
 		background-color: lightgrey;
-		color: snow;
+		color: grey; 
 		padding: 2px 4px 2px 4px;
 		border-radius: 3px;
 		height: 27px;
@@ -123,7 +130,7 @@
 	
 	.admin_btn {
 		background-color: lightgrey;
-		color: snow;
+		color: grey;
 		padding: 2px 4px 2px 4px;
 		border-radius: 3px;
 		height: 27px;
@@ -225,7 +232,7 @@
 					</div>
 				</sec:authorize>
 					<div >
-						<button data-oper="list" type="button" class="admin_btn ">목록</button>
+						<button data-oper="list" type="button" class="admin_btn" style="background-color: lightslategrey; color: white;">목록</button>
 					</div>
 			</div>
 			</c:when>
@@ -237,7 +244,7 @@
   						<button data-oper="delete" type="button" class="user_btn">삭제</button>					
 					</div>	
 					<div>
-  						<button data-oper="list" type="button" class="user_btn">목록</button>
+  						<button data-oper="list" type="button" class="user_btn" style="background-color: lightslategrey; color: white;">목록</button>
 					</div>
 				
 				</div>				

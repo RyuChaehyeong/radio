@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="${root }/resources/css/all.min.css" />
@@ -126,10 +127,6 @@ $(document).ready(function() {
 });
 </script>
 <style type="text/css">	
-	body {
-	background-image: url("/resources/pic/background.jpg");
-	background-size: cover; 
-	}
 	.header_title { 
 		border-bottom: 1px silver solid; 
 		margin-top: 10px;	
@@ -171,7 +168,7 @@ $(document).ready(function() {
 	}
 	.sub_btn {
 		background-color: lightgrey;
-		color: snow;
+		color: grey;
 		padding: 2px 4px 2px 4px;
 		border-radius: 3px;
 		height: 27px;

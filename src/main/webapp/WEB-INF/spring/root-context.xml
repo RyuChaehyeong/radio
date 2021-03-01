@@ -45,17 +45,17 @@
 	
 	<!-- 진수 버킷빈 -->
 	<bean id="ociConfigMOONPath" class="java.lang.String">
-		<constructor-arg value="/home/opc/oci-moon/config"></constructor-arg> 
+		<constructor-arg value="/home/opc/oci/config"></constructor-arg> 
 	</bean>
 		
-	<!--  유정 버킷 설정파일 -->
+	<!--  유정 버킷 설정파일 --> 
 	<bean id="ociConfigYJPath" class="java.lang.String" >
 		<constructor-arg value="/home/opc/oci-yj/config"></constructor-arg>
 	</bean>
 	
 	<!-- 재민 버킷빈 -->
 	<bean id="ociConfigMINPath" class="java.lang.String">
-		<constructor-arg value="/home/opc/oci-min/config"></constructor-arg>
+		<constructor-arg value="/home/opc/oci2/config"></constructor-arg> 
 	</bean>
 	
 	<tx:annotation-driven />

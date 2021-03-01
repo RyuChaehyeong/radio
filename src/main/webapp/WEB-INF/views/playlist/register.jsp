@@ -17,10 +17,10 @@
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style type="text/css">
-	 body {
-	background-image: url("../resources/pic/background.jpg");
-	background-size: contain;
-	}	
+	body {
+		background-image: url("${root}/resources/pic/Lovepik_com lake boat night backgroun.jpg");
+		background-size:contain;
+	}
 	
 	.nav-menu {
    	   display: flex;

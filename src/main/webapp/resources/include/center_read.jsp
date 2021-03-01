@@ -12,7 +12,6 @@
 <meta charset="UTF-8">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="${root }/resources/css/all.min.css" rel="stylesheet"> 
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -105,11 +104,11 @@ $(document).ready(function(){
 		list-style: none;
 		padding-left: 50px;
 	}
-	.btn_list_delete {
+	.btn_list_delete { 
 		width: 100px;
 		padding: 0px;
 		border-radius: 5px;
-		background-color: lightsgrey;
+		background-color: lightgrey; 
 	}
 	
 	.rep_txt {
@@ -128,6 +127,12 @@ $(document).ready(function(){
 	
 	.reply_form {
 		margin: 0px 70px 0px 70px;
+	}
+	.reply_form_header {
+		padding: 15px 0px 15px 0px;
+		background-color: rgb(241, 241, 241); 
+		border-radius: 0px; 
+		border-top: solid 1px silver;
 	}
 </style>
 </head>
@@ -210,7 +215,7 @@ $(document).ready(function(){
 					</label>
 				</div>
 				<div class="input">
-					<textarea cols="30" rows="10" class="inquiryTxt" style="border: 1px solid grey;;" name="center_content">${CenterVO.center_content }</textarea> 
+					<textarea style="background-color: lightgrey;" cols="30" rows="10" class="inquiryTxt" style="border: 1px solid grey;;" name="center_content">${CenterVO.center_content }</textarea> 
 				</div>
 				</li>
 			</ul> 
@@ -221,8 +226,9 @@ $(document).ready(function(){
 </div>
 		
 		<div class="reply_form">
-			<div class="reply_form_header" style="padding:0px 0px 40px 0px; background-color: rgb(241, 241, 241); border-radius: 0px; border-top: solid 1px silver;s">
-				<strong>문의 답변</strong>
+			<div class="reply_form_header" style="display: flex; justify-content: center; align-items: center;">
+				<div><strong>문의 답변</strong></div> 
+				<div></div> 
 			</div>
 			<div class="reply_form_body" style="height:150px; margin:0px 0px 20px 0px; border: 1px solid silver;  border:none; border-bottom: 1px solid silver; border-radius:0px;">			
 				<p>${CenterVO.center_reply }</p>	
@@ -233,7 +239,6 @@ $(document).ready(function(){
 		<div class="btn_group">
 			<ul style="list-style: none; display: flex; justify-content: space-between;">
 			<li><button id="delete_btn" class="btn_list_delete" type="button">삭제하기</button></li>
-			<li><button class="btn_list_delete" type="button">목록으로</button></li>
 			</ul>
 		</div>
 		</div>
@@ -246,7 +251,7 @@ $(document).ready(function(){
 			<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">	
 			<input type="hidden" name="center_bno" value="${CenterVO.center_bno }">
 			<textarea cols="10" rows="5" class="rep_txt" name="center_reply"></textarea>	
-			<button id="com_reply" type="button">답글</button>
+			<button id="com_reply" type="button" style="background-color: lightslategrey; margin-bottom: 20px;">답글</button>
 		</form>
 	</div>
 	</sec:authorize>

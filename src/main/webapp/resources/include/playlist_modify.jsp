@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -16,7 +17,6 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <script>
 var bno = $
@@ -35,31 +35,27 @@ var bno = $
 		margin: 30px 40px 10px 40px;
 	}
 	
-	.title_input input {
-		border: none;
-		outline: none;
-		border-bottom: 1px solid silver;
+	.title_input {
 		height: 40px;
-		
-		width: 500px;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
+	}
+	.title_input input {
+		outline: none;
+		border: 1px silver solid;
+		border-radius: 5px 5px; 
+		padding-left: 10px;
 	}
 	
 	.content_txt {
-		border: 1px solid silver;
-		outline: none;	
-		resize: none;	
+		resize: none;
 		outline: none;
-		margin-top: 20px;
-		margin-bottom: 20px;
+		border: 1px silver solid;
+		margin-bottom: 10px;
 		border-radius: 5px 5px;
-		width: 500px; 
-		
+		padding-left: 10px;
+		padding-top: 10px;		
 	}
 	
-	.content_txt::-webkit-scrollbar { 
-		display:none; 		
-	}
 	.writer_input {
 		margin: 10px;
 	}
@@ -71,7 +67,7 @@ var bno = $
 	}
 	.mod_del {
 		background-color: lightgrey;
-		color: snow;
+		color: grey;
 		padding: 2px 4px 2px 4px;
 		border-radius: 3px;
 		height: 27px;
@@ -88,12 +84,18 @@ var bno = $
 		margin-left: 10px;	
 	} 
 	.con {
-		padding: 20px 0px 20px 0px;
-		background-color: white;
-		justify-content: center;
+		padding: 0px 100px 20px 100px;  
+		background-color: rgb(241, 241, 241);
 		margin-bottom: 10px;
-		margin-left: 10px;
-		margin-right: 10px;
+		margin-left: 20px;
+		margin-right: 20px;
+		border-radius: 5px 5px;
+	}
+	
+	.tit_header {
+		padding: 30px 0px 10px 0px;
+		margin:0px 5px 20px 10px;
+		font-weight: bold;
 	}
 </style>
 
@@ -112,15 +114,14 @@ var bno = $
 				<form id="modify-form" method="post" action="${root }/playlist/modify">
 				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 				
-			<div class="con">
-				<div class="bno_title" style="display: flex; ">
-					
+			<div class="con">				
 					<input hidden name="bno" type="text" readonly value="${board.bno }" />
+					<div class="tit_header">글 수정</div>
 					<div class="title_input">
 					    <input name="title" type="text"
-							class="" value='<c:out value="${board.title }" />' >
+						class="" value='<c:out value="${board.title }" />' >
 					</div>
-				</div>
+
 
 					<div class="content_input">						
 						<textarea wrap="hard" name="content" class="content_txt" cols="10" rows="10">
@@ -130,7 +131,7 @@ var bno = $
 
 					<div class="writer_input">
 					 <input name="writer" type="text"
-							class="" readonly value='<c:out value="${board.writer }" />'>
+							hidden readonly value='<c:out value="${board.writer }" />'>
 					</div>
 			</div>	
 			

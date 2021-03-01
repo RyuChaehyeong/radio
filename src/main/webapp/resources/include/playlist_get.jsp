@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -14,7 +15,6 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script src="${root }/resources/js/reply.js"></script>
 <script>
 	var root = '${root}'; // contextRoot를 root라는 이름으로 저장.
@@ -39,7 +39,7 @@ body {
 } 
 
 .playGet_wrapper {
-	height: inherit;
+	
 	margin: 30px 40px 10px 40px; 
 } 
 
@@ -63,7 +63,7 @@ body {
 
 .a_root a {
 	background-color: lightgrey;
-	color: snow;
+	color: grey;
 	margin-right: 5px;
 	padding: 2px 4px 2px 4px;
 	border-radius: 3px;
@@ -102,21 +102,21 @@ body {
 				</pre>
 			</div>
 
-		</div>  
 		
-	<div class="a_root" style="display: flex; justify-content: flex-end;">
-		<a href="${root}/playlist/play">목록</a> <br/>
-		
+		</div>   
+	<div class="a_root" style="display: flex; justify-content:flex-end;">
+		<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
 		<c:url value="/playlist/modify" var="modifyLink">
 		<c:param value="${board.bno}" name="bno"></c:param>
 		<c:param value="${cri.pageNum}" name="pageNum"></c:param>
 		<c:param value="${cri.amount}" name="amount"></c:param>
 		<c:param value="${cri.type}" name="type"></c:param>
 		<c:param value="${cri.keyword}" name="keyword"></c:param>
-		</c:url>				 		  
-		<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">	
+		</c:url>				 		  	
 			<a href="${modifyLink}" class="">수정</a>
-		</sec:authorize>  
+		</sec:authorize>  			
+			<a href="${root}/playlist/play" style="background-color:lightslategrey
+			; color: white;">목록</a> <br/>
 	</div>
 </div>
 </div>

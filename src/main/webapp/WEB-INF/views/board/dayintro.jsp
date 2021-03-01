@@ -19,9 +19,9 @@
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style type="text/css">
 	 body {
-	background-image: url("../resources/pic/background.jpg");
-	background-size: cover;  
-}
+		background-image: url("${root}/resources/pic/Lovepik_com lake boat night backgroun.jpg");
+		background-size:contain;
+	}
 .coner {
 	background-color: snow;
 }
@@ -87,12 +87,7 @@
 	<input type="submit"/>
 </form>
 -->
-
-
-
-
-
-
+ 
 
 <div class="header2">
         <jsp:include page="/resources/include/main_header.jsp" />
@@ -104,7 +99,7 @@
         </div> 
 
             <div class="nav">
-                <jsp:include page="/resources/include/main_nav.jsp" />                 
+                <jsp:include page="/resources/include/main_nav.jsp" />                  
             </div> 
         
         <div class="weekday">

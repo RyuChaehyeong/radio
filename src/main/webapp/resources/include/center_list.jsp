@@ -11,8 +11,7 @@
 </script>
 <meta charset="UTF-8">
 <link rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link href="${root}/resources/css/all.min.css" rel="stylesheet">  
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -75,6 +74,10 @@
 		text-decoration: none;
 	}
 	
+	.thead_th tr th {
+		text-align: center;
+	}  
+	
 	</style>
 </head>
 <body>
@@ -101,7 +104,7 @@
 		
 			<table>
 			
-				<thead>
+				<thead class="thead_th">
 					<tr>
 						<th>문의유형</th>
 						<th>제목</th>

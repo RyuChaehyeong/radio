@@ -10,6 +10,7 @@
 	var root = '${root}';
 </script>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -18,7 +19,6 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script>
 	$(document).ready(function() {
 		
@@ -88,21 +88,21 @@
 
 <style type="text/css">
 .video-list {
-	margin: 30px 40px 30px 40px; 
+	margin: 50px 40px 30px 40px; 
 }
  
 .v_list_wrap{
-	 border: 1px solid silver;
-	 padding: 10px 30px 10px 30px;
+	 border: 2px dashed silver;
+	 padding: 10px 40px 40px 40px;
 	 margin-bottom: 20px;
 }
 
 .tit_date {
 	margin-top: 40px;
 	margin-bottom: 30px;
-	border-top: 2px black solid;
-	border-bottom: 1px silver solid;
-	padding: 5px 0px 5px 0px;
+	background-color: lightgrey;
+	padding: 5px 5px 5px 5px;
+	border-radius: 3px 3px;
 }
 
 .left-tab{
@@ -200,10 +200,12 @@
 	
 	.reg_btn {
 		float: left;
-		width: 100px; 
+		width: 50px; 
 		padding: 0px;
 		background-color: slategrey;
 		border-radius: 3px 3px;
+		margin-bottom: 20px;
+		font-weight: bold;
 	}
 </style>
 </head>
@@ -217,6 +219,14 @@
 
 
 <div class="video-list">
+
+<!-- 페이지이동버튼 -->
+	<div id="register-button">
+		<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
+		<button type="button" data-oper="register" class="reg_btn">등록</button>
+		</sec:authorize>
+	</div>
+	
 	<!-- 게시판 -->
 	<div class="v_list_wrap">
 		<ol class="list-group" style="list-style:none;">
@@ -231,7 +241,7 @@
 				</li>
 				<li class="" style="display: flex; justify-content: space-around; align-items:center;">
 					<div>
-					<img width="300" class="" src="${staticPath }${videoVO.video_thumbnail}">
+					<img width="300" class="" src="${BoardStaticPath }${videoVO.video_thumbnail}">
 					</div>
 					<div> 
 					<button type="button" class="video_btn" 
@@ -279,12 +289,7 @@
 	</div>
 	
 	
-	<!-- 페이지이동버튼 -->
-	<div id="register-button">
-		<sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_MANAGER')">
-		<button type="button" data-oper="register" class="reg_btn">작성하기</button>
-		</sec:authorize>
-	</div>
+	
 	
 	
 	

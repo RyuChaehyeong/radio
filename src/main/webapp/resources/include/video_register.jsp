@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -15,7 +16,6 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
 	var root = '${root}';
 </script>
@@ -89,11 +89,6 @@
 	border: 1px solid grey;
 }
 
-.con_input textarea {
-	border: 1px solid grey;
-	resize: none;
-}
-
 .reg_btn {
 	background-color: lightgrey;
 	color: grey;
@@ -101,6 +96,20 @@
 	border-radius: 3px;
 	height: 27px;
 	margin-right: 5px;
+}
+.tit_content {
+		padding: 0px 100px 20px 100px;  
+		background-color: rgb(241, 241, 241);
+		margin-bottom: 10px;
+		margin-left: 20px;
+		margin-right: 20px;
+		border-radius: 5px 5px;
+}
+
+.tit_header { 
+		padding: 30px 0px 10px 0px;
+		margin:0px 5px 20px 10px;
+		font-weight: bold;
 }
 </style>
 <title>Insert title here</title>
@@ -117,30 +126,31 @@
 	               enctype="multipart/form-data" method="post">
 		
 		<div class="tit_content">
+			<div class="tit_header">글 등록</div>
 		
-		<input id="input1" type="text" name="video_title" class="form-control"  placeholder="제목을 입력하세요.">
+			<span>제목</span>
+			<input id="input1" type="text" name="video_title" class="form-control"  placeholder="제목을 입력하세요.">
 		
-		<span>방송일</span>
-		<input id="input2" type="date" name="video_date" class="form-control"  value="2020-01-01"
+			<span>방송일</span>
+			<input id="input2" type="date" name="video_date" class="form-control"  value="2020-01-01"
       			 min="2021-01-01" max="2022-12-31">
       	
-      	<span>썸네일</span>
-		<input name="thumbnail" type="file" accept="image/*" class="form-control" 
+      		<div class="file_content">
+      		<span>썸네일</span>
+			<input name="thumbnail" type="file" accept="image/*" class="form-control" 
 					placeholder="썸네일" id="input3" >
 		
-		<span>영상</span>
-		<input name="vod" type="file" accept="video/*" class="form-control" 
+			<span>영상</span>
+			<input name="vod" type="file" accept="video/*" class="form-control" 
 					placeholder="영상" id="input4" >
-		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+			<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+      		</div>
 		
-		<div class="con_input">
-						<textarea cols="10" rows="10" name="content" class="form-control" id="textarea1"></textarea>
-		</div>
 	
-		<input type="hidden" name="video_thumbnail" value="">
-		<input type="hidden" name="video_vod" value="">
+			<input type="hidden" name="video_thumbnail" value="">
+			<input type="hidden" name="video_vod" value="">
 
-		<input type="submit" hidden/>
+			<input type="submit" hidden/>
 	
 		</div>
 	</form>

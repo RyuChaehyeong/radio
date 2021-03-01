@@ -11,6 +11,7 @@
 var root = '${root}';
 </script>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -19,7 +20,6 @@ var root = '${root}';
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <script>
 $(document).ready(function() {
@@ -42,32 +42,27 @@ $(document).ready(function() {
 	.mod_wrapper {
 		margin: 30px 40px 10px 40px;
 	}
-	
-	.title_input input {
-		border: none;
-		outline: none;
-		border-bottom: 1px solid silver;
+	.title_input {
 		height: 40px;
-		text-align: center;
-		width: 500px;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
+	}
+	.title_input input {
+		outline: none;
+		border: 1px silver solid;
+		border-radius: 5px 5px; 
+		padding-left: 10px;
 	}
 	
 	.content_txt {
-		border: 1px solid silver;
-		outline: none;	
-		resize: none;	
+		resize: none;
 		outline: none;
-		margin-top: 20px;
-		margin-bottom: 20px;
+		border: 1px silver solid;
+		margin-bottom: 10px;
 		border-radius: 5px 5px;
-		width: 500px;
-		text-align: center;
+		padding-left: 10px;
+		padding-top: 10px;
 	}
 	
-	.content_txt::-webkit-scrollbar { 
-		display:none; 		
-	}
 	.writer_input {
 		margin: 10px;
 	}
@@ -79,7 +74,7 @@ $(document).ready(function() {
 	}
 	.mod_del {
 		background-color: lightgrey;
-		color: snow;
+		color: grey;
 		padding: 2px 4px 2px 4px;
 		border-radius: 3px;
 		height: 27px;
@@ -95,12 +90,18 @@ $(document).ready(function() {
 		margin-left: 10px;	
 	} 
 	.con {
-		padding: 20px 0px 20px 0px;
-		background-color: white;
-		justify-content: center;
+		padding: 0px 100px 20px 100px;  
+		background-color: rgb(241, 241, 241);
 		margin-bottom: 10px;
-		margin-left: 10px;
-		margin-right: 10px;
+		margin-left: 20px;
+		margin-right: 20px;
+		border-radius: 5px 5px;
+	}
+	
+	.tit_header {
+		padding: 30px 0px 10px 0px;
+		margin:0px 5px 20px 10px;
+		font-weight: bold;
 	}
 </style>
 <title>Insert title here</title>
@@ -110,26 +111,30 @@ $(document).ready(function() {
 <h6>다시듣기</h6>
 </div>
 	<div class="mod_wrapper">
-		<div class="">
-			<div class="">
+		
 				<form id="modify-form" method="post" action="${root }/replay/modify">
 				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 				
 				<div class="con">
 					<input hidden name="bno" type="text"readonly value="${board.bno }" />
+					<div class="tit_header">글 수정</div>
 					<div class="title_input">
 						<input name="title" type="text"
 						class="title_txt" value='<c:out value="${board.title }" />'>
 					</div>
 
 					<div class="content_input">
-						<textarea name="content" class="content_txt" id="textarea1"
+						<textarea  wrap="hard" name="content" class="content_txt" id="textarea1"
 						 cols="10" rows="10" ><c:out value="${board.content }"/></textarea>
+					</div>
+					
+					<div class="con_input">
+						<input name="filename" type="file" accept="audio/* " class="file_button">
 					</div>
 
 					<div class="writer_input">
 						<input name="writer" type="text"
-						class="" readonly value='<c:out value="${board.writer }" />'>
+						hidden value='<c:out value="${board.writer }" />'>
 					</div>
 				</div>
 
@@ -140,8 +145,7 @@ $(document).ready(function() {
 					<button type="submit" class="mod_del">수정</button>
 					<button id="remove-btn" type="submit" class="mod_del">삭제</button>
 				</form>
-			</div>
-		</div>
+		
 	</div>
 
 </body>

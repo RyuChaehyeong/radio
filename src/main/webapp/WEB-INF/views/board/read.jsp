@@ -30,11 +30,7 @@ var replyer= null;
 </sec:authorize>
 var csrfHeaderName = "${_csrf.headerName}";
 var csrfTokenValue = "${_csrf.token}";
-
-
-
-
-
+var flag = false; 
 
 	$(document).ajaxSend(function(e, xhr, options) {
 		xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
@@ -53,10 +49,16 @@ var csrfTokenValue = "${_csrf.token}";
 			replyService.getList(
 					{num:num}, 
 					function(list){
-				//console.log(list);
-				//위에 list는 controller에서 ResponseEntity에 붙여준 list
+					//console.log(list.length);
+					//위에 list는 controller에서 ResponseEntity에 붙여준 list
 					var replyUl = $("#reply-ul");
-				
+					if(list.length > 0) {
+						flag = true;
+					} else {
+						flag = false;
+					}
+					
+					//console.log(flag);
 					//이전에 append된 것 비우기
 					replyUl.empty();
 					for (var i = 0; i < list.length; i++) {
@@ -207,8 +209,8 @@ var csrfTokenValue = "${_csrf.token}";
 </script>
 <style type="text/css">
 	 body {
-	background-image: url("/resources/pic/background.jpg");
-	background-size: cover;
+		background-image: url("${root}/resources/pic/Lovepik_com lake boat night backgroun.jpg");
+		background-size:contain;
 	}	 
 	
 	.nav-menu {

@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="${root }/resources/css/all.min.css" />
@@ -70,8 +71,8 @@ $(document).ready(function() {
 	}  
 	
 	.pic_wrapper {
-		margin: 0px 40px 10px 40px;
-		margin-top: 20px; 
+		margin: 30px 40px 10px 40px;
+		
 	}
 	.pic_subWrp {
 		padding: 30px 200px 0px 200px;
@@ -81,11 +82,14 @@ $(document).ready(function() {
 	}
 	
 	.tit_input {
+		height: 40px; 
 		margin-bottom: 20px;
 	}
 	.tit_input input {
 		outline: none;
 		border: 1px solid silver;
+		border-radius: 5px 5px; 
+		padding-left: 10px;
 		
 	}
 	
@@ -94,13 +98,14 @@ $(document).ready(function() {
 		outline: none;
 		border: 1px silver solid;
 		margin-bottom: 10px;
-		text-align: center;
 		border-radius: 5px 5px;
+		padding-left: 10px;
+		padding-top: 10px;
 	}
 	
 	.reg_btn {
 		background-color: lightgrey;
-		color: snow;
+		color: grey;
 		padding: 2px 4px 2px 4px;
 		border-radius: 3px;
 		height: 27px;
@@ -111,24 +116,23 @@ $(document).ready(function() {
 		color: grey;
 	}
 	
-	.tit_input {
-		border-bottom: 1px solid silver;
-		height: 40px;
-		margin-bottom: 20px;
-	}
 	.tit_input input {
-		border: none;
 		outline: none;
-		text-align: center;
 	}
 	.tit_content {
-		padding: 20px 100px 20px 100px;  
-		background-color: white;
+		padding: 0px 100px 20px 100px;  
+		background-color: rgb(241, 241, 241);
 		margin-bottom: 10px;
-		margin-left: 150px;
-		margin-right: 150px;
+		margin-left: 20px;
+		margin-right: 20px;
 		border-radius: 5px 5px;
-	}   
+	}
+	
+	.tit_header {
+		padding: 30px 0px 10px 0px;
+		margin:0px 5px 20px 10px;
+		font-weight: bold;
+	}
 </style>
 <title>Insert title here</title>
 </head>
@@ -141,6 +145,7 @@ $(document).ready(function() {
 		<form id="pictureRoom-form1" action="${root }/picroom/register" method="post" enctype="multipart/form-data">
  		 <%-- <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/> --%> 
  	<div class="tit_content">
+ 		 <div class="tit_header">사진 등록</div>
  		 <div class="tit_input">
    			 <input name="title" type="text" placeholder="제목을 입력하세요.">
  		 </div>  

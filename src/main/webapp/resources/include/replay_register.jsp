@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -16,7 +17,6 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style type="text/css">
 	.header_title {
 		border-bottom: 1px silver solid;
@@ -38,7 +38,9 @@
 	}
 	.tit_input input {
 		outline: none;
-		border: 1px solid silver;	
+		border: 1px silver solid;
+		border-radius: 5px 5px; 
+		padding-left: 10px;
 	}
 	
 	.con_input textarea {
@@ -46,13 +48,14 @@
 		outline: none;
 		border: 1px silver solid;
 		margin-bottom: 10px;
-		text-align: center;
 		border-radius: 5px 5px;
+		padding-left: 10px;
+		padding-top: 10px;
 	}
 	
 	.reg_btn {
 		background-color: lightgrey;
-		color: snow;
+		color: grey;
 		padding: 2px 4px 2px 4px;
 		border-radius: 3px;
 		height: 27px;
@@ -65,25 +68,27 @@
 		background-color: snow;
 		color: grey;
 	}
-	.tit_input {
-		border-bottom: 1px solid silver;
+	.tit_input { 
 		height: 40px;
 		margin-bottom: 20px;
 	}
-	.tit_input input {
-		border: none;
+	.tit_input input {		
 		outline: none;
-		text-align: center;
 	}
 	.tit_content {
-		padding: 20px 100px 20px 100px;  
-		background-color: white;
+		padding: 0px 100px 20px 100px;  
+		background-color: rgb(241, 241, 241);
 		margin-bottom: 10px;
-		margin-left: 10px;
-		margin-right: 10px;
+		margin-left: 20px;
+		margin-right: 20px;
 		border-radius: 5px 5px;
 	}
-
+	
+	.tit_header { 
+		padding: 30px 0px 10px 0px;
+		margin:0px 5px 20px 10px;
+		font-weight: bold;
+	}
 </style>
 <title>Insert title here</title>
 </head>
@@ -97,14 +102,17 @@
 				<form method="post" enctype="multipart/form-data">			
 				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 				
+				
+				
 				<div class="tit_content">
+					<div class="tit_header">글 등록</div>
 					<div class="tit_input">
 					<input name="title" type="text"
 						 placeholder="제목을 입력하세요.">
 					</div>
 
 					<div class="con_input">
-						<textarea cols="30" rows="20" name="content" class="form-control" id="textarea1"></textarea>
+						<textarea cols="10" rows="10" name="content" id="textarea1"></textarea>
 						<input name="filename" type="file" accept="audio/* " class="file_button">
 					</div>
 					</div>

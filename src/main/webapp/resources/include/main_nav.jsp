@@ -20,10 +20,10 @@
        padding-right: 30px;
        border: none;
        outline: none;
-       border-radius: 5px 5px;
+       border-radius: 5px 5px; 
        align-items: center;
-       justify-content: center;
-       background-color: thistle;
+       justify-content: center; 
+       background-color: peru; 
        
    }
    
@@ -32,11 +32,13 @@
    	   text-decoration: none;
    	   color: white;   	  
        padding: 10px 30px 10px 30px;
+       font-weight: bold;
    }
    
    .nav-menu:hover {
    	   text-decoration: none;
    }
+
 </style>
 <title>Insert title here</title>
 </head>
@@ -46,7 +48,8 @@
           <a class="nav-menu" href="${root}/playlist/play">선곡표</a>
           <a class="nav-menu" href="${root}/board/dayintro">코너소개</a>
           <a class="nav-menu" href="${root}/replay/list">다시듣기</a>                  
-          <a class="nav-menu" href="${root}/picroom/list">사진방</a>                  
+          <a class="nav-menu" href="${root}/picroom/list">사진방</a>     
+          <a class="nav-menu" href="${root}/video/video_list">보이는라디오</a>              
      </div>   
 </body>
 </html>

@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="${root }/resources/css/all.min.css" />
@@ -47,6 +48,7 @@ $(document).ready(function() {
 			 
 			 $.each(data, function(idx, item) {
 				 listContainer.append(createCard(item));
+				 console.log(item);
 				 lastId = item.id;
 			 });
 			 if (data.length < length) {
@@ -116,19 +118,19 @@ $(document).ready(function() {
 }  
 	
 .pic_btn {
-	background-color: lightgrey;
+	background-color: lightslategrey;
 	color: white;
-	width: 60px;
+	width: 80px;
 	margin: 20px;
 	padding: 2px;
 	text-align: center;
-	border-radius: 5px 5px;
+	border-radius: 2px 2px;
 	font-weight: bold;
 }
 
 .pic_btn:hover {
 	text-decoration: none;
-	color: grey;
+	color: white;
 	font-weight: bold;
 }
 </style>
@@ -141,11 +143,11 @@ $(document).ready(function() {
 <div class="container-fluid">
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
 	
-	<a href="${root }/picroom/register" type="submit" data-oper='modify' id="pictureRoom-btn" class="pic_btn">사진</a>
+	<a href="${root }/picroom/register" type="submit" data-oper='modify' id="pictureRoom-btn" class="pic_btn">사진 등록</a>
 	</sec:authorize> 
 	<div id="pictureRoom-list1" ></div>
 	<div class="text-center">
-		<button id="pictureRoom-load-btn1" class="btn btn-outline-secondary" >더 보기</button>
+		<button id="pictureRoom-load-btn1" class="btn btn-outline-secondary" style="margin-top: 20px;">더 보기</button>
 	</div>
 </div>
 </body>

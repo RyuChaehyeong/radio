@@ -10,6 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -18,7 +19,6 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <script>
 	$(document).ready(function() {
@@ -84,7 +84,7 @@
 }
 
 .replyList_wrapper {
-	margin: 30px 40px 10px 40px;
+	margin: 50px 40px 10px 40px;
 }
 
 table, thead, tbody, th, tr, td {
@@ -117,7 +117,7 @@ tbody tr td a:hover {
 
 .btn_register {
 	background-color: lightgrey;
-	color: snow;
+	color: grey;
 	margin-top: 10px;
 	padding: 2px 4px 2px 4px;
 	border-radius: 3px;

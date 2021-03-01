@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${root }/resources/css/form.css">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -17,12 +18,7 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <style type="text/css">
-	 body {
-	background-image: url("../resources/pic/background.jpg");
-	background-size: cover;  
-}
 	#miniForm {
 		margin: 3%;
 		padding: 3%;
@@ -143,6 +139,15 @@
 		margin: 30px;
 		background-color: rgb(241, 241, 241);
 	}
+	.del_btn {
+		background-color: lightslategrey;
+		border: none;
+		outline: none;
+		color: white;
+		padding: 0px 4px 0px 2px;
+		text-align: center;
+		border-radius: 2px 2px;
+	}
 </style>
 
 <script type="text/javascript">
@@ -224,7 +229,7 @@ $(document).ready(function(){
 				     		<form action="${root }/mini/remove/${mini.num}" method="post">
 								<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token}"/>
 								<sec:authorize access="hasRole('ROLE_ADMIN')">
-									<input type="submit" value="삭제"/>		     		
+									<input class="del_btn" type="submit" value="삭제"/>		     		
 								</sec:authorize> 
 				     		</form>
 				     		</td>

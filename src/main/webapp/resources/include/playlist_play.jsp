@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -15,7 +16,6 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 
@@ -60,7 +60,7 @@
 	margin-left: 10px;	
 }
 .playList_wrapper {
-	margin: 30px 40px 10px 40px;
+	margin: 50px 40px 10px 40px;
 }
 
 table, thead, tbody, th, tr, td {
@@ -90,6 +90,7 @@ th, tr {
 .page_nav .nav_ul {
 	display: flex;
 	list-style: none;	
+	justify-content: center;
 }
 .page_num {
 	color: grey;
@@ -97,6 +98,7 @@ th, tr {
 	padding: 0px 8px 2px 8px;
 	border-radius: 5px 5px;
 	margin:0px;
+	
 } 
 
 .page_num:hover {
@@ -104,6 +106,7 @@ th, tr {
 	color: snow;
 	text-decoration: none;
 }
+
 .search_form {
 	border: solid 1px rgb(241, 241, 241);
 	display: flex;
@@ -119,7 +122,7 @@ th, tr {
 
 .btn_register {
 	background-color: lightgrey;
-	color: snow; 
+	color: grey; 
 	margin-top: 10px;
 	padding: 2px 4px 2px 4px;
 	border-radius: 3px;
@@ -250,13 +253,7 @@ th, tr {
 
 	<div class="search_form">
 		<form action="${root }/playlist/play" id="searchForm" class="form-inline my-2 my-lg-0">
-					<span>기간 별 검색</span>
-					<input class="date_input" name="date" required value="${board.regdate}" type="date" style="margin-right: 5px;">
-			       <input class="date_input" name="date" required value="${board.regdate}" type="date">
-			
-			<div class="break" style="flex-basis: 100%; height: 0;"></div>
-			 
-			<span>분류별 검색</span>
+		
 			<select name="type" class="custom-select my-1 mr-sm-2"
 				id="inlineFormCustomSelectPref">
 				<option value="T" ${pageMaker.cri.type eq 'T' ? 'selected' : '' }>제목</option>
@@ -264,11 +261,11 @@ th, tr {
 				<option value="W" ${pageMaker.cri.type eq 'W' ? 'selected' : '' }>작성자</option>
 			</select> 
 			<input name="keyword" required value="${pageMaker.cri.keyword }"
-				class="form-control mr-sm-2" type="search" placeholder="Search"
+				class="form-control mr-sm-2" type="search" placeholder="검색"
 				aria-label="Search"> 
 				<input type="hidden" name="pageNum" value="1" /> 
 				<input type="hidden" name="amount" value="${pageMaker.cri.amount }" />
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
 			
 		</form> 
 	</div>

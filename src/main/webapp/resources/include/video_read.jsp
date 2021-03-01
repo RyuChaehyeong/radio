@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -15,7 +16,6 @@
   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script type="text/javascript">
 	
 	$(document).ready(function(e){
@@ -77,7 +77,7 @@
 	
 	.admin_btn {
 		background-color: lightgrey;
-		color: snow;
+		color: grey;
 		padding: 2px 4px 2px 4px;
 		border-radius: 3px;
 		height: 27px;
@@ -108,7 +108,7 @@
 			
 						<div class="video">
 							<video width="500" height="300" controls autoplay>
-  							<source src="${staticPath }${videoVO.video_vod}" >
+  							<source src="${BoardStaticPath }${videoVO.video_vod}" >
   							이 브라우저는 재생할 수 없습니다.
 							</video>
 						</div>
@@ -123,7 +123,7 @@
 			</div>
 			</sec:authorize> 
 			<div>
-				<button type="button" data-oper="list" class="admin_btn">목록</button>
+				<button type="button" data-oper="list" class="admin_btn" style="background-color: lightslategrey; color: white;">목록</button>
 			</div>
 		</div>
 		
