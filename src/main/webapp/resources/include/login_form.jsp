@@ -126,7 +126,7 @@ $(document).ready(function() {
 <body>
 <div class="login_container" >
 	<div class="login_sub_container"> 
-	     		<form action="/login" method="post" id="form_id">
+	     		<form action="${root }/login" method="post" id="form_id">
 					
 							<div class="login_header"> 
 								<h2>로그인</h2>

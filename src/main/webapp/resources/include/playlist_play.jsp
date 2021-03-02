@@ -6,6 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript">
+var root = '${root}';
+</script>
 <meta charset="UTF-8">
 <link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
@@ -35,7 +38,7 @@
 
 			var register = $(this).data("form");
 
-			formObj.attr("action", "/playlist/register").attr("method", "get");
+			formObj.attr("action", root + "/playlist/register").attr("method", "get");
 			var pageNumTag = $("input[name='pageNum']").clone();
 			var amountTag = $("input[name='amount']").clone();
 			 
@@ -169,7 +172,7 @@ th, tr {
 							<td style="text-align: center; color: grey;"><fmt:formatDate
 									pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
 							<td class="tx" style="text-align: center;"><c:url
-									value="${root }/playlist/get" var="boardLink">
+									value="/playlist/get" var="boardLink">
 									<c:param value="${board.bno }" name="bno" />
 									<c:param value="${board.writer }" name="id" />
 									<c:param value="${pageMaker.cri.pageNum }" name="pageNum" />

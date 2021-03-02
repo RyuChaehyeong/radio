@@ -108,7 +108,7 @@
 			
 						<div class="video">
 							<video width="500" height="300" controls autoplay>
-  							<source src="${BoardStaticPath }${videoVO.video_vod}" >
+  							<source src="${BoardStaticPath}${videoVO.video_vod}" >
   							이 브라우저는 재생할 수 없습니다.
 							</video>
 						</div>

@@ -55,6 +55,7 @@ public class VideoController {
 	
 	
 	@PostMapping("/video_register")
+	
 	public String register(VideoVO videoVO, Video_Criteria video_Criteria, 
 			MultipartFile thumbnail, MultipartFile vod,RedirectAttributes rttr) {
 		log.info("*************(POST)video_reigster 실행**************");
@@ -129,6 +130,7 @@ public class VideoController {
 	
 	
 	@PostMapping("/video_modify")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String modify(VideoVO videoVO, Video_Criteria video_Criteria,
 			MultipartFile thumbnail, MultipartFile vod,RedirectAttributes rttr) {	
 		log.info("*************(POST)video_list 실행**************");

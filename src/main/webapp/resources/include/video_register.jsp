@@ -46,7 +46,7 @@
 				alert("방송일을 선택하세요");
 				return false;
 			}
-			
+			console.log("submit before");
 			registerForm.submit();
 		});
 		

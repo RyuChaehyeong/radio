@@ -7,6 +7,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript">
+var root = '${root}';
+</script>
 <meta charset="UTF-8">
 <link href="${root }/resources/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet"
@@ -159,7 +162,7 @@ $(document).ready(function(){
 	$("#remove-btn").click(function(e) {
 		e.preventDefault();
 		
-		$("#modify-form").attr("action", "${root}/playlist/remove");
+		$("#modify-form").attr("action", root + "/playlist/remove");
 		
 		$("#modify-form").submit();
 	});

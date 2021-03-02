@@ -38,7 +38,7 @@ document.getElementById('sysdate').innerHTML = locale();
 
 	body {
 		background-image: url("${root}/resources/pic/Lovepik_com lake boat night backgroun.jpg");
-		background-size:contain;
+		background-size:cover;
 	}	
 	
    .wrapper{      
@@ -50,7 +50,7 @@ document.getElementById('sysdate').innerHTML = locale();
         grid-template-rows:  400px 50px 90px 30px 70px 110px 130px 200px 100px;
         grid-template-areas: 'empty3 header header header header empty4'
                              'empty3 nav nav nav nav empty4'
-                             'empty3 today today today today empty4' 
+                             'empty3 today today today today empty4'  
                              'empty3 playlist weekday SNS inquiry empty4'  
                              'empty3 playlist weekday SNS inquiry empty4'  
                              'empty3 playlist weekday listener inquiry empty4'

@@ -136,7 +136,7 @@ tr {
 table tbody tr td {
 	padding: 3px 0px 3px 0px;
 }
-th {
+.list_table th {
 	text-align: center;
 	padding: 8px 0px 8px 0px;
 }
